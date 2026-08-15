@@ -40,11 +40,6 @@ app.use((req, res) => {
 // START SERVER
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}!
-    URL: http://localhost:${PORT}
-Dashboard:http://localhost:${PORT}/dashboard
-Generator:http://localhost:${PORT}/generator
-About:http://localhost:${PORT}/about
-API: http://localhost:${PORT}/api/health
 
     Press Ctrl+C to stop the server.
   `);
