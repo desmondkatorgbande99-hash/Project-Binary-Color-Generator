@@ -1,0 +1,35 @@
+{
+  "name": "project-binary-color",
+  "version": "1.0.0",
+  "description": "A web-based system for binary color generation and representation using 0s and 1s",
+  "keywords": [
+    "binary",
+    "color",
+    "rgb",
+    "generator",
+    "educational",
+    "express",
+    "ejs",
+    "dashboard"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "no repo"
+  },
+  "license": "MIT",
+  "author": "Gbande Desmond Kator",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "nodemon": "^3.1.14"
+  }
+}

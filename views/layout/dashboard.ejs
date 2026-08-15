@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Include Header Partial -->
+    <%- include('../partials/header') %>
+
+<body>
+    <!-- Visually hidden until focused: lets keyboard/screen-reader users
+         jump past the nav straight to page content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+        <!-- Navigation Bar -->
+        <%- include('../partials/navbar', { activePage: activePage }) %>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content" tabindex="-1">
+            <%- body %>
+        </main>
+
+        <!-- Footer -->
+        <%- include('../partials/footer', { currentYear: typeof currentYear !== 'undefined' ? currentYear : new Date().getFullYear() }) %>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="/script.js" defer></script>
+
+    <style>
+        /* Skip link — hidden off-screen by default, snaps into view on
+           keyboard focus. Lives here rather than style.css since it's
+           structural to this one layout, not a reusable component. */
+        .skip-link {
+            position: fixed;
+            top: -100px;
+            left: var(--space-4, 16px);
+            z-index: 2000;
+            background: var(--color-accent, #00c6ff);
+            color: #0f1420;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: var(--space-3, 12px) var(--space-5, 20px);
+            border-radius: var(--radius-md, 10px);
+            text-decoration: none;
+            transition: top var(--duration-fast, 150ms) ease;
+        }
+
+        .skip-link:focus-visible {
+            top: calc(var(--space-3, 12px) + env(safe-area-inset-top));
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        /* Keeps content clear of the fixed navbar when the skip link,
+           an anchor link, or browser find-in-page jumps here */
+        #main-content {
+            scroll-margin-top: calc(var(--nav-height, 68px) + var(--space-4, 16px));
+            outline: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .skip-link {
+                transition: none;
+            }
+        }
+    </style>
+</body>
+</html>

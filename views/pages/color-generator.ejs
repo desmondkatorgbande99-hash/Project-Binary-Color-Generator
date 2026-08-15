@@ -1,0 +1,189 @@
+<div class="generator-container">
+  <div class="generator-header">
+    <h1><svg width="26" height="26" viewBox="0 0 24 24"><use href="#icon-rgb" xlink:href="#icon-rgb"></use></svg> Color Generator</h1>
+    <p>Generate colors using 8-bit binary strings (0s and 1s) or color names</p>
+  </div>
+
+  <!-- The .container class below pulls in all of style.css's existing
+       glass-card + responsive grid rules (tablet/desktop column spans,
+       touch targets, tokens) instead of redefining them locally. -->
+  <div class="container">
+    <!-- API STATUS BADGE -->
+    <p id="apiStatus" class="api-status"></p>
+
+    <!-- INPUTS -->
+    <div class="input-group">
+      <label for="redInput">RED (8-bit)</label>
+      <input
+        type="text"
+        id="redInput"
+        maxlength="8"
+        placeholder="e.g. 11111111"
+      />
+    </div>
+
+    <div class="input-group">
+      <label for="greenInput">GREEN (8-bit)</label>
+      <input
+        type="text"
+        id="greenInput"
+        maxlength="8"
+        placeholder="e.g. 00000000"
+      />
+    </div>
+
+    <div class="input-group">
+      <label for="blueInput">BLUE (8-bit)</label>
+      <input
+        type="text"
+        id="blueInput"
+        maxlength="8"
+        placeholder="e.g. 10101010"
+      />
+    </div>
+
+    <div class="input-group color-name-group">
+      <label for="colorNameInput">COLOR NAME</label>
+      <input type="text" id="colorNameInput" placeholder="e.g. red or navy" />
+    </div>
+
+    <!-- BUTTON -->
+    <button id="generateBtn">GENERATE COLOR</button>
+
+    <!-- COLOR PREVIEW -->
+    <h3>COLOR PREVIEW</h3>
+    <div id="colorDisplay">NO COLOR YET</div>
+    <p id="colorName">COLOR: NONE</p>
+    <p>
+      <strong>24-BIT BINARY:</strong>
+      <span id="binary24">00000000 00000000 00000000</span>
+    </p>
+
+    <!-- HEX VALUE -->
+    <div class="hex-row">
+      <span id="hexValue">HEX: #000000</span>
+      <button id="copyHexBtn">COPY</button>
+    </div>
+
+    <!-- DECIMAL VALUES -->
+    <h3>DECIMAL VALUES</h3>
+    <div class="decimal-values">
+      <p>RED: <span id="redDecimal">0</span></p>
+      <p>GREEN: <span id="greenDecimal">0</span></p>
+      <p>BLUE: <span id="blueDecimal">0</span></p>
+    </div>
+
+    <!-- PRESETS -->
+    <h3 class="presets-heading">PRESETS</h3>
+    <div class="presets">
+      <button
+        class="preset-btn"
+        data-r="11111111"
+        data-g="00000000"
+        data-b="00000000"
+      >
+        Red
+      </button>
+      <button
+        class="preset-btn"
+        data-r="00000000"
+        data-g="11111111"
+        data-b="00000000"
+      >
+        Green
+      </button>
+      <button
+        class="preset-btn"
+        data-r="00000000"
+        data-g="00000000"
+        data-b="11111111"
+      >
+        Blue
+      </button>
+      <button
+        class="preset-btn"
+        data-r="11111111"
+        data-g="11111111"
+        data-b="00000000"
+      >
+        Yellow
+      </button>
+      <button
+        class="preset-btn"
+        data-r="00000000"
+        data-g="00000000"
+        data-b="00000000"
+      >
+        Black
+      </button>
+      <button
+        class="preset-btn"
+        data-r="11111111"
+        data-g="11111111"
+        data-b="11111111"
+      >
+        White
+      </button>
+      <button
+        class="preset-btn"
+        data-r="00000000"
+        data-g="11111111"
+        data-b="11111111"
+      >
+        Cyan
+      </button>
+      <button
+        class="preset-btn"
+        data-r="11111111"
+        data-g="00000000"
+        data-b="11111111"
+      >
+        Magenta
+      </button>
+
+      <!-- Grayscale -->
+      <button class="preset-name-btn" data-name="Gray">Gray</button>
+      <button class="preset-name-btn" data-name="Dark Gray">Dark Gray</button>
+      <button class="preset-name-btn" data-name="Light Gray">Light Gray</button>
+    </div>
+
+    <footer>
+      <button id="resetBtn">RESET ALL FIELDS</button>
+    </footer>
+  </div>
+</div>
+
+<style>
+  /* Only page-specific wrapper/header styles live here — everything
+     inside .container (inputs, buttons, #colorDisplay, presets, etc.)
+     is already styled globally by style.css. */
+  .generator-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-6, 24px) var(--space-4, 16px);
+  }
+
+  .generator-header {
+    text-align: center;
+    margin-bottom: var(--space-6, 24px);
+  }
+
+  .generator-header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2, 8px);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: var(--space-2, 8px);
+  }
+
+  .generator-header p {
+    color: var(--color-text-muted, #cccccc);
+  }
+
+  @media (max-width: 768px) {
+    .generator-container {
+      padding: var(--space-3, 12px);
+    }
+  }
+</style>

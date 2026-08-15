@@ -1,0 +1,470 @@
+<!-- Navigation Bar Partial -->
+<nav class="dashboard-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-glow-line" aria-hidden="true"></div>
+
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="/dashboard" aria-label="Binary Color Generator home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="url(#brandGradient)" />
+                        <text x="50" y="68" font-size="52" text-anchor="middle" fill="#ffffff" font-family="monospace" font-weight="700">01</text>
+                        <defs>
+                            <linearGradient id="brandGradient" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#00d4ff" />
+                                <stop offset="100%" stop-color="#0072ff" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+                <span class="brand-text">Binary<span class="brand-highlight">Color</span></span>
+            </a>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="/" class="nav-link <%= activePage === 'home' ? 'active' : '' %>"
+               aria-label="Home page" <%= activePage === 'home' ? 'aria-current="page"' : '' %>>
+                <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-9.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                </svg>
+                <span class="nav-text">Home</span>
+            </a>
+
+            <a href="/generator" class="nav-link <%= activePage === 'generator' ? 'active' : '' %>"
+               aria-label="Color Generator page" <%= activePage === 'generator' ? 'aria-current="page"' : '' %>>
+                <svg class="nav-icon nav-icon-rgb" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="9" cy="9" r="6" fill="#ff4d4d" opacity="0.85" />
+                    <circle cx="15" cy="9" r="6" fill="#3ddc84" opacity="0.85" />
+                    <circle cx="12" cy="14" r="6" fill="#5c8dff" opacity="0.85" />
+                </svg>
+                <span class="nav-text">Color Generator</span>
+            </a>
+
+            <a href="/about" class="nav-link <%= activePage === 'about' ? 'active' : '' %>"
+               aria-label="About page" <%= activePage === 'about' ? 'aria-current="page"' : '' %>>
+                <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+                    <line x1="12" y1="11" x2="12" y2="16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="12" cy="7.75" r="1.15" fill="currentColor" />
+                </svg>
+                <span class="nav-text">About</span>
+            </a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Scrim dims the page behind the mobile menu so it reads as a focused
+     overlay rather than links floating over live content -->
+<div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+
+<!-- Shared icon sprite — referenced via <use href="#icon-x"/> from home.ejs,
+     about.ejs, color-generator.ejs, and 404.ejs so icon markup isn't
+     duplicated per page. All outline icons share one stroke language
+     (24x24, 2px stroke, round caps); icon-rgb keeps its own fixed brand
+     colors since it's a logo-like mark, not a state-driven icon. -->
+<svg width="0" height="0" style="position: absolute; overflow: hidden;" aria-hidden="true">
+    <defs>
+        <symbol id="icon-info" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none" />
+            <line x1="12" y1="11" x2="12" y2="16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <circle cx="12" cy="7.75" r="1.15" fill="currentColor" />
+        </symbol>
+        <symbol id="icon-book" viewBox="0 0 24 24">
+            <path d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none" />
+            <path d="M20 5.5c0-.83-.67-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="icon-process" viewBox="0 0 24 24">
+            <circle cx="5" cy="12" r="2.25" stroke="currentColor" stroke-width="2" fill="none" />
+            <circle cx="12" cy="6" r="2.25" stroke="currentColor" stroke-width="2" fill="none" />
+            <circle cx="19" cy="12" r="2.25" stroke="currentColor" stroke-width="2" fill="none" />
+            <circle cx="12" cy="18" r="2.25" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M7 11l3.2-3.4M14.8 7.6L17 11M17 13l-2.2 3.4M9.8 16.4L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </symbol>
+        <symbol id="icon-tools" viewBox="0 0 24 24">
+            <path d="M14.7 6.3a4 4 0 0 0-5.4 4.6L4 16.2V20h3.8l5.3-5.3a4 4 0 0 0 4.6-5.4l-2.6 2.6-2.1-2.1 2.6-2.6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="icon-api" viewBox="0 0 24 24">
+            <path d="M9 6L3.5 12 9 18M15 6l5.5 6-5.5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="icon-graduation" viewBox="0 0 24 24">
+            <path d="M2 9l10-4.5L22 9l-10 4.5L2 9z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none" />
+            <path d="M6 11v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+            <path d="M22 9v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </symbol>
+        <symbol id="icon-credits" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" fill="rgba(0,255,204,0.12)" />
+            <path d="M7.5 12.5l3 3 6-6.5" stroke="#00ffcc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="icon-tag" viewBox="0 0 24 24">
+            <path d="M12.6 3.6L20 4l.4 7.4-9.7 9.7a1.5 1.5 0 0 1-2.1 0l-5.7-5.7a1.5 1.5 0 0 1 0-2.1l9.7-9.7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none" />
+            <circle cx="15.5" cy="8.5" r="1.4" fill="currentColor" />
+        </symbol>
+        <symbol id="icon-bolt" viewBox="0 0 24 24">
+            <path d="M13 3L5 13.5h5.5L11 21l8-10.5h-5.5L13 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="icon-clipboard" viewBox="0 0 24 24">
+            <rect x="6" y="4.5" width="12" height="17" rx="1.8" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M9.5 4.5V3.8a1.3 1.3 0 0 1 1.3-1.3h2.4a1.3 1.3 0 0 1 1.3 1.3v.7" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M9 12.5l2 2 4-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="icon-device" viewBox="0 0 24 24">
+            <rect x="2.5" y="4.5" width="14" height="10" rx="1.3" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M6 18h9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <rect x="17.5" y="8.5" width="5" height="9.5" rx="1.2" stroke="currentColor" stroke-width="2" fill="none" />
+        </symbol>
+        <symbol id="icon-binary" viewBox="0 0 24 24">
+            <rect x="2.5" y="6" width="7.5" height="12" rx="1.5" stroke="currentColor" stroke-width="2" fill="none" />
+            <rect x="14" y="6" width="7.5" height="12" rx="1.5" stroke="currentColor" stroke-width="2" fill="none" />
+            <text x="6.25" y="15.5" font-size="7" text-anchor="middle" fill="currentColor" font-family="monospace">1</text>
+            <text x="17.75" y="15.5" font-size="7" text-anchor="middle" fill="currentColor" font-family="monospace">0</text>
+        </symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+            <path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="icon-rgb" viewBox="0 0 24 24">
+            <circle cx="9" cy="9" r="6" fill="#ff4d4d" opacity="0.85" />
+            <circle cx="15" cy="9" r="6" fill="#3ddc84" opacity="0.85" />
+            <circle cx="12" cy="14" r="6" fill="#5c8dff" opacity="0.85" />
+        </symbol>
+    </defs>
+</svg>
+
+<style>
+/* ============================================
+   NAVIGATION BAR — shares tokens with style.css;
+   fallbacks included so this partial still looks
+   correct if loaded on its own.
+   ============================================ */
+
+:root {
+    --nav-height: 68px;
+}
+
+.dashboard-nav {
+    background: rgba(20, 30, 48, 0.85);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: env(safe-area-inset-top);
+}
+
+/* Signature element — the same animated gradient used on the page title
+   and the footer, so header and footer visually "frame" the page. */
+.nav-glow-line {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, #00d4ff, #7c3aed, #ff006e, #00d4ff);
+    background-size: 300% 100%;
+    animation: navGradientShift 6s ease infinite;
+}
+
+@keyframes navGradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: var(--nav-height);
+    padding: 0 var(--space-4, 16px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand */
+.nav-brand a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 8px);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm, 6px);
+    transition: transform var(--duration-fast, 150ms) ease;
+}
+
+.nav-brand a:hover {
+    transform: scale(1.02);
+}
+
+.nav-brand a:focus-visible {
+    outline: 2px solid var(--color-accent, #00c6ff);
+    outline-offset: 4px;
+}
+
+.brand-mark {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.brand-text {
+    color: #ffffff;
+}
+
+.brand-highlight {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Nav links */
+.nav-links {
+    display: flex;
+    gap: var(--space-2, 8px);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 8px);
+    min-height: var(--touch-min, 44px);
+    padding: var(--space-2, 8px) var(--space-4, 16px);
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md, 10px);
+    transition: color var(--duration-fast, 150ms) ease, background var(--duration-fast, 150ms) ease, transform var(--duration-fast, 150ms) ease;
+    position: relative;
+}
+
+.nav-icon {
+    flex-shrink: 0;
+}
+
+/* RGB icon keeps its own brand colors at all times — it's a fixed
+   identity mark for the "color" concept, not a state-driven icon */
+.nav-icon-rgb {
+    opacity: 1;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background: rgba(0, 198, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.nav-link:focus-visible {
+    outline: 2px solid var(--color-accent, #00c6ff);
+    outline-offset: 2px;
+    color: #ffffff;
+}
+
+.nav-link.active {
+    color: var(--color-accent, #00c6ff);
+    background: rgba(0, 198, 255, 0.15);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 2px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border-radius: 2px;
+}
+
+/* Mobile toggle button — sized to the 44x44 touch target minimum
+   (was 30x25 before) */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0;
+    width: var(--touch-min, 44px);
+    height: var(--touch-min, 44px);
+    border-radius: var(--radius-sm, 6px);
+    touch-action: manipulation;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2.5px;
+    background: #ffffff;
+    border-radius: 3px;
+    transition: all var(--duration-fast, 150ms) ease;
+}
+
+.nav-toggle:hover span {
+    background: var(--color-accent, #00c6ff);
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--color-accent, #00c6ff);
+    outline-offset: 2px;
+}
+
+/* Animate hamburger into an X when open */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Scrim behind the mobile menu */
+.nav-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    transition: opacity var(--duration-base, 250ms) ease;
+}
+
+.nav-scrim.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ============================================
+   RESPONSIVE — matches style.css breakpoints (768)
+   ============================================ */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: calc(var(--nav-height) + env(safe-area-inset-top));
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(20, 30, 48, 0.97);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        flex-direction: column;
+        align-items: stretch;
+        padding: var(--space-4, 16px);
+        padding-bottom: calc(var(--space-4, 16px) + env(safe-area-inset-bottom));
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform var(--duration-base, 250ms) ease, opacity var(--duration-base, 250ms) ease, visibility var(--duration-base, 250ms);
+        gap: var(--space-2, 8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        max-height: calc(100dvh - var(--nav-height));
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding: var(--space-3, 12px);
+    }
+
+    .nav-link.active::after {
+        bottom: 2px;
+    }
+}
+
+/* Main content adjustment for fixed navbar */
+.main-content {
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-glow-line {
+        animation: none;
+    }
+
+    .nav-links,
+    .nav-toggle span,
+    .nav-scrim {
+        transition: none;
+    }
+}
+</style>
+
+<script>
+// Mobile menu toggle functionality
+document.addEventListener('DOMContentLoaded', function () {
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('navLinks');
+    var navScrim = document.getElementById('navScrim');
+
+    if (!navToggle || !navLinks) return;
+
+    function openMenu() {
+        navLinks.classList.add('active');
+        if (navScrim) navScrim.classList.add('active');
+        navToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        if (navScrim) navScrim.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    navToggle.addEventListener('click', function () {
+        var isOpen = navLinks.classList.contains('active');
+        isOpen ? closeMenu() : openMenu();
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu when clicking the scrim or outside the menu
+    if (navScrim) navScrim.addEventListener('click', closeMenu);
+
+    document.addEventListener('click', function (event) {
+        if (!navToggle.contains(event.target) && !navLinks.contains(event.target)) {
+            closeMenu();
+        }
+    });
+
+    // Close menu on Escape for keyboard users
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+            closeMenu();
+            navToggle.focus();
+        }
+    });
+});
+</script>

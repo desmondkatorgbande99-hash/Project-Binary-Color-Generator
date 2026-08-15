@@ -1,0 +1,125 @@
+<footer class="dashboard-footer">
+    <div class="footer-glow-line" aria-hidden="true"></div>
+
+    <div class="footer-container">
+        <div class="footer-content">
+
+            <div class="footer-section footer-brand">
+                <h3>Binary Color Generator</h3>
+                <p>
+                    Educational tool for learning binary representation
+                    through digital colors.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/generator">Generator</a>
+                    </li>
+
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="/app">Original App</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-cta">
+                <h4>Jump back in</h4>
+
+                <p>
+                    Generate a new palette and see its binary breakdown
+                    in seconds.
+                </p>
+
+                <a href="/generator" class="footer-cta-btn">
+                    Open Generator
+
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M5 12h14M13 6l6 6-6 6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; <%= currentYear %>
+                Binary Color Generator &mdash; Educational Project
+            </p>
+
+            <button
+                type="button"
+                class="footer-top-btn"
+                id="footerToTop"
+                aria-label="Back to top"
+            >
+                <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M12 19V5M5 12l7-7 7 7"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+                Top
+            </button>
+
+        </div>
+    </div>
+</footer>
+
+
+<script>
+(function () {
+    var toTopBtn = document.getElementById('footerToTop');
+
+    if (!toTopBtn) return;
+
+    var prefersReducedMotion =
+        window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+    toTopBtn.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: prefersReducedMotion
+                ? 'auto'
+                : 'smooth'
+        });
+    });
+})();
+</script>
