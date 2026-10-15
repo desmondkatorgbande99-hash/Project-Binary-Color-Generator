@@ -39,9 +39,13 @@ app.use((req, res) => {
 });
 
 // START SERVER
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}
 
     Press Ctrl+C to stop the server.
   `);
-});
+  });
+}
+
+module.exports = app;
