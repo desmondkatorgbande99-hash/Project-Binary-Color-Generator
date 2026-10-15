@@ -1,652 +1,257 @@
 <div class="home-container">
-  <!-- Ambient background glow layers -->
-  <div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
-  <div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
+  <!-- Subtle ambient glow effects -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
 
   <!-- Hero Section -->
   <section class="hero-section">
-    <!-- Version / Status Pill -->
-    <div class="hero-pill-badge">
-      <span class="pulse-dot" aria-hidden="true"></span>
-      <span class="pill-text">Interactive Digital Color Theory &bull; True 24-Bit RGB</span>
-      <span class="pill-tag">v2.0</span>
-    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span>Interactive Educational Tool</span>
+      </div>
 
-    <div class="hero-header">
       <h1 class="hero-title">
-        Master Digital Color Through
-        <span class="gradient-text">Binary Logic</span>
+        <span class="gradient-text">Binary</span>
+        <span class="hero-arrow-wrap" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" class="hero-arrow"><use href="#icon-arrow"></use></svg>
+        </span>
+        <span class="gradient-text">Color</span>
       </h1>
+
       <p class="hero-subtitle">
-        Explore how computers synthesize over 16.7 million visible colors using fundamental 8-bit bytes. Experiment with real-time binary-to-RGB conversion, hex mapping, and color distance algorithms.
+        Discover how computers represent millions of colors using only 0s and 1s
       </p>
-      
-      <div class="hero-actions">
+
+      <div class="hero-buttons">
         <a href="/generator" class="btn btn-primary btn-hero">
-          <svg width="20" height="20" viewBox="0 0 24 24" class="btn-icon" aria-hidden="true"><use href="#icon-rgb"></use></svg>
-          <span>Open Color Generator</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" class="btn-arrow" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-rgb"></use></svg>
+          <span>Launch Color Generator</span>
         </a>
         <a href="/about" class="btn btn-secondary btn-hero">
-          <svg width="20" height="20" viewBox="0 0 24 24" class="btn-icon" aria-hidden="true"><use href="#icon-book"></use></svg>
-          <span>Read Documentation</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-book"></use></svg>
+          <span>Learn More</span>
         </a>
       </div>
     </div>
 
-    <!-- Interactive Hero Preview Workbench -->
-    <div class="hero-workbench" id="heroWorkbench">
-      <div class="workbench-glass">
-        <!-- Workbench Topbar -->
-        <div class="workbench-bar">
-          <div class="window-controls" aria-hidden="true">
-            <span class="window-dot dot-red"></span>
-            <span class="window-dot dot-yellow"></span>
-            <span class="window-dot dot-green"></span>
-          </div>
-          <div class="workbench-title">
-            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-binary"></use></svg>
-            <span>LIVE BINARY WORKBENCH &bull; 24-BIT STREAM</span>
-          </div>
-          <div class="workbench-status">
-            <span class="status-indicator"></span>
-            <span>SYNCED</span>
-          </div>
-        </div>
-
-        <!-- Workbench Body: Interactive Mini-Demo -->
-        <div class="workbench-body">
-          <!-- Left: 3 Channel Inputs / Bit Streams -->
-          <div class="channels-preview">
-            <!-- Red Channel -->
-            <div class="channel-card channel-red">
-              <div class="channel-header">
-                <div class="channel-meta">
-                  <span class="channel-dot" style="background: #ff4d4d;"></span>
-                  <span class="channel-name">RED CHANNEL (R)</span>
-                </div>
-                <div class="channel-val-box">
-                  <span class="channel-dec" id="hwRedDec">0</span>
-                  <span class="channel-range">/ 255</span>
-                </div>
-              </div>
-              <div class="bit-track" id="hwRedBits">
-                <span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span>
-                <span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span>
-              </div>
-              <div class="channel-bar-wrap">
-                <div class="channel-bar" id="hwRedBar" style="width: 0%; background: #ff4d4d;"></div>
-              </div>
-            </div>
-
-            <!-- Green Channel -->
-            <div class="channel-card channel-green">
-              <div class="channel-header">
-                <div class="channel-meta">
-                  <span class="channel-dot" style="background: #00ffcc;"></span>
-                  <span class="channel-name">GREEN CHANNEL (G)</span>
-                </div>
-                <div class="channel-val-box">
-                  <span class="channel-dec" id="hwGreenDec">198</span>
-                  <span class="channel-range">/ 255</span>
-                </div>
-              </div>
-              <div class="bit-track" id="hwGreenBits">
-                <span class="bit active">1</span><span class="bit active">1</span><span class="bit">0</span><span class="bit">0</span>
-                <span class="bit">0</span><span class="bit active">1</span><span class="bit active">1</span><span class="bit">0</span>
-              </div>
-              <div class="channel-bar-wrap">
-                <div class="channel-bar" id="hwGreenBar" style="width: 77.6%; background: #00ffcc;"></div>
-              </div>
-            </div>
-
-            <!-- Blue Channel -->
-            <div class="channel-card channel-blue">
-              <div class="channel-header">
-                <div class="channel-meta">
-                  <span class="channel-dot" style="background: #00c6ff;"></span>
-                  <span class="channel-name">BLUE CHANNEL (B)</span>
-                </div>
-                <div class="channel-val-box">
-                  <span class="channel-dec" id="hwBlueDec">255</span>
-                  <span class="channel-range">/ 255</span>
-                </div>
-              </div>
-              <div class="bit-track" id="hwBlueBits">
-                <span class="bit active">1</span><span class="bit active">1</span><span class="bit active">1</span><span class="bit active">1</span>
-                <span class="bit active">1</span><span class="bit active">1</span><span class="bit active">1</span><span class="bit active">1</span>
-              </div>
-              <div class="channel-bar-wrap">
-                <div class="channel-bar" id="hwBlueBar" style="width: 100%; background: #00c6ff;"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Live Output Swatch & Details -->
-          <div class="workbench-output">
-            <div class="output-swatch-glow" id="hwSwatchGlow" style="background: radial-gradient(circle, rgba(0, 198, 255, 0.45) 0%, transparent 70%);"></div>
-            <div class="output-swatch" id="hwSwatch" style="background-color: #00C6FF; color: #000000;">
-              <div class="swatch-badge">LIVE SYNTHESIS</div>
-              <div class="swatch-name" id="hwColorName">Deep Sky Blue</div>
-              <div class="swatch-hex" id="hwHex">#00C6FF</div>
-              <div class="swatch-rgb" id="hwRgb">rgb(0, 198, 255)</div>
-            </div>
-
-            <div class="output-meta-grid">
-              <div class="output-meta-pill">
-                <span class="meta-label">24-BIT STREAM</span>
-                <code class="meta-val" id="hwBinary24">00000000 11000110 11111111</code>
-              </div>
-              <div class="output-meta-pill">
-                <span class="meta-label">CONTRAST COMPLIANCE</span>
-                <span class="meta-val" id="hwContrast">Dark Text (Optimal)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Workbench Footer: Interactive Presets -->
-        <div class="workbench-footer">
-          <span class="presets-intro">Try Live Presets:</span>
-          <div class="interactive-presets">
-            <button type="button" class="hw-preset-btn active" data-color="cyan" data-r="00000000" data-g="11000110" data-b="11111111" data-hex="#00C6FF" data-name="Deep Sky Blue" data-rgb="rgb(0, 198, 255)" data-text="#000000">
-              <span class="preset-chip" style="background: #00C6FF;"></span>
-              Cyber Cyan
-            </button>
-            <button type="button" class="hw-preset-btn" data-color="coral" data-r="11111111" data-g="01111111" data-b="01010000" data-hex="#FF7F50" data-name="Coral" data-rgb="rgb(255, 127, 80)" data-text="#000000">
-              <span class="preset-chip" style="background: #FF7F50;"></span>
-              Sunset Coral
-            </button>
-            <button type="button" class="hw-preset-btn" data-color="emerald" data-r="00110010" data-g="11001101" data-b="01010111" data-hex="#32CD57" data-name="Spring Emerald" data-rgb="rgb(50, 205, 87)" data-text="#000000">
-              <span class="preset-chip" style="background: #32CD57;"></span>
-              Emerald Green
-            </button>
-            <button type="button" class="hw-preset-btn" data-color="purple" data-r="10010011" data-g="01110000" data-b="11011011" data-hex="#9370DB" data-name="Medium Purple" data-rgb="rgb(147, 112, 219)" data-text="#ffffff">
-              <span class="preset-chip" style="background: #9370DB;"></span>
-              Electric Violet
-            </button>
-            <button type="button" class="hw-preset-btn" data-color="amber" data-r="11111111" data-g="10100101" data-b="00000000" data-hex="#FFA500" data-name="Orange" data-rgb="rgb(255, 165, 0)" data-text="#000000">
-              <span class="preset-chip" style="background: #FFA500;"></span>
-              Solar Amber
-            </button>
-            <button type="button" class="hw-preset-btn" data-color="crimson" data-r="11011100" data-g="00010100" data-b="00111100" data-hex="#DC143C" data-name="Crimson" data-rgb="rgb(220, 20, 60)" data-text="#ffffff">
-              <span class="preset-chip" style="background: #DC143C;"></span>
-              Crimson Red
-            </button>
-          </div>
-        </div>
+    <!-- Stats Cards -->
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Digits (0 &amp; 1)</div>
       </div>
-    </div>
-
-    <!-- High-Impact Metrics Strip -->
-    <div class="metrics-strip">
-      <div class="metric-card">
-        <div class="metric-value">24<span class="metric-unit">Bits</span></div>
-        <div class="metric-title">Full Color Depth</div>
-        <p class="metric-desc">3 channels of 8-bit precision (R, G, B) combined into a single 24-bit integer word.</p>
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Bits per Channel</div>
       </div>
-      <div class="metric-divider" aria-hidden="true"></div>
-      <div class="metric-card">
-        <div class="metric-value">16.7M<span class="metric-unit">+</span></div>
-        <div class="metric-title">Color Possibilities</div>
-        <p class="metric-desc">Exactly 256<sup>3</sup> = 16,777,216 distinct color combinations mapped in RGB space.</p>
+      <div class="stat-card">
+        <div class="stat-number">16.7M</div>
+        <div class="stat-label">Possible Colors</div>
       </div>
-      <div class="metric-divider" aria-hidden="true"></div>
-      <div class="metric-card">
-        <div class="metric-value">200<span class="metric-unit">+</span></div>
-        <div class="metric-title">Euclidean Matchers</div>
-        <p class="metric-desc">Color naming powered by 3D distance calculations against the CSS color standard.</p>
-      </div>
-      <div class="metric-divider" aria-hidden="true"></div>
-      <div class="metric-card">
-        <div class="metric-value">&lt; 1<span class="metric-unit">ms</span></div>
-        <div class="metric-title">REST API Latency</div>
-        <p class="metric-desc">Ultra-fast microservice backend running on Express 5 with deterministic validation.</p>
+      <div class="stat-card">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Color Names</div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Bit Anatomy: How 8-Bit Binary Converts to Decimals -->
-  <section class="bit-anatomy-section">
-    <div class="section-head">
-      <div class="section-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24"><use href="#icon-binary"></use></svg>
-        COMPUTER ARCHITECTURE 101
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="icon-badge">1</div>
+        <h3>Enter Binary</h3>
+        <p>Type 8-bit binary numbers for Red, Green, and Blue channels</p>
+        <code class="step-example">11111111 00000000 00000000</code>
       </div>
-      <h2 class="section-heading">How 8 Bits Translate to 0–255</h2>
-      <p class="section-subtext">Each bit in an 8-bit byte carries a positional weight based on powers of 2. Summing active bits yields the decimal channel intensity.</p>
-    </div>
-
-    <div class="anatomy-table-wrap">
-      <div class="anatomy-card">
-        <div class="anatomy-grid">
-          <div class="anatomy-col">
-            <span class="col-power">2<sup>7</sup></span>
-            <span class="col-weight">128</span>
-            <span class="col-bit bit-on">1</span>
-          </div>
-          <div class="anatomy-col">
-            <span class="col-power">2<sup>6</sup></span>
-            <span class="col-weight">64</span>
-            <span class="col-bit bit-on">1</span>
-          </div>
-          <div class="anatomy-col">
-            <span class="col-power">2<sup>5</sup></span>
-            <span class="col-weight">32</span>
-            <span class="col-bit bit-off">0</span>
-          </div>
-          <div class="anatomy-col">
-            <span class="col-power">2<sup>4</sup></span>
-            <span class="col-weight">16</span>
-            <span class="col-bit bit-off">0</span>
-          </div>
-          <div class="anatomy-col">
-            <span class="col-power">2<sup>3</sup></span>
-            <span class="col-weight">8</span>
-            <span class="col-bit bit-off">0</span>
-          </div>
-          <div class="anatomy-col">
-            <span class="col-power">2<sup>2</sup></span>
-            <span class="col-weight">4</span>
-            <span class="col-bit bit-on">1</span>
-          </div>
-          <div class="anatomy-col">
-            <span class="col-power">2<sup>1</sup></span>
-            <span class="col-weight">2</span>
-            <span class="col-bit bit-on">1</span>
-          </div>
-          <div class="anatomy-col">
-            <span class="col-power">2<sup>0</sup></span>
-            <span class="col-weight">1</span>
-            <span class="col-bit bit-off">0</span>
-          </div>
-        </div>
-
-        <div class="anatomy-summary">
-          <div class="calc-formula">
-            <span class="formula-label">Calculation:</span>
-            <code>(1 &times; 128) + (1 &times; 64) + (1 &times; 4) + (1 &times; 2) = <strong>198</strong></code>
-          </div>
-          <div class="calc-arrow">&rarr;</div>
-          <div class="calc-result">
-            <span class="res-hex">HEX: <strong>C6</strong></span>
-            <span class="res-sample" style="background: #00C600;"></span>
-          </div>
-        </div>
+      <div class="step-card">
+        <div class="icon-badge">2</div>
+        <h3>Convert to Decimal</h3>
+        <p>Each 8-bit binary converts to 0-255 decimal values</p>
+        <code class="step-example">255, 0, 0</code>
+      </div>
+      <div class="step-card">
+        <div class="icon-badge">3</div>
+        <h3>Generate Color</h3>
+        <p>RGB values combine to create a visible color</p>
+        <code class="step-example">rgb(255, 0, 0)</code>
+      </div>
+      <div class="step-card">
+        <div class="icon-badge">4</div>
+        <h3>Display Results</h3>
+        <p>View HEX, 24-bit binary, and color name</p>
+        <code class="step-example">#FF0000</code>
       </div>
     </div>
   </section>
 
-  <!-- How It Works (Pipeline) -->
-  <section class="pipeline-section">
-    <div class="section-head">
-      <div class="section-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24"><use href="#icon-process"></use></svg>
-        DATA CONVERSION PIPELINE
-      </div>
-      <h2 class="section-heading">Four Steps from Bitstream to Screen Pixel</h2>
-      <p class="section-subtext">The exact pipeline executed on every keystroke in our color engine.</p>
-    </div>
-
-    <div class="pipeline-grid">
-      <div class="pipeline-step">
-        <div class="step-num-badge">01</div>
-        <div class="step-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#icon-binary"></use></svg>
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2 class="section-title">Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-binary"></use></svg>
         </div>
-        <h3 class="step-title">Binary Input &amp; Validation</h3>
-        <p class="step-desc">Three 8-bit streams are validated via regex <code>/^[01]{8}$/</code> to guarantee byte boundary integrity.</p>
-        <div class="step-pill"><code>11111111</code> (8 bits)</div>
+        <h3>Binary Input</h3>
+        <p>Direct 8-bit binary input for each RGB channel with real-time validation</p>
       </div>
 
-      <div class="pipeline-step">
-        <div class="step-num-badge">02</div>
-        <div class="step-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#icon-tools"></use></svg>
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-rgb"></use></svg>
         </div>
-        <h3 class="step-title">Decimal Intensity Mapping</h3>
-        <p class="step-desc">Bits are parsed into base-10 channel values from 0 to 255 using high-performance bitwise math.</p>
-        <div class="step-pill"><code>R: 255, G: 0, B: 0</code></div>
+        <h3>Live Preview</h3>
+        <p>Instant color display as you type with smooth transitions</p>
       </div>
 
-      <div class="pipeline-step">
-        <div class="step-num-badge">03</div>
-        <div class="step-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#icon-rgb"></use></svg>
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-tag"></use></svg>
         </div>
-        <h3 class="step-title">RGB Synthesis &amp; Hex</h3>
-        <p class="step-desc">Each channel is converted to 2-digit uppercase hexadecimal to construct the CSS <code>#RRGGBB</code> string.</p>
-        <div class="step-pill"><code>HEX: #FF0000</code></div>
+        <h3>Color Name Detection</h3>
+        <p>Automatically detects color names from 200+ predefined colors</p>
       </div>
 
-      <div class="pipeline-step">
-        <div class="step-num-badge">04</div>
-        <div class="step-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-bolt"></use></svg>
         </div>
-        <h3 class="step-title">Nearest-Neighbor Detection</h3>
-        <p class="step-desc">If no exact name exists, the engine computes Euclidean color distance in 3D RGB space to find the closest named color.</p>
-        <div class="step-pill"><code>Color: "Pure Red"</code></div>
+        <h3>Quick Presets</h3>
+        <p>One-click presets for common colors and grayscale shades</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Key Architectural Features (Bento Grid) -->
-  <section class="bento-section">
-    <div class="section-head">
-      <div class="section-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24"><use href="#icon-bolt"></use></svg>
-        ENTERPRISE FEATURES
-      </div>
-      <h2 class="section-heading">Built with Precision and Best Practices</h2>
-      <p class="section-subtext">Engineered for educators, computer science students, and modern web developers.</p>
-    </div>
-
-    <div class="bento-grid">
-      <!-- Feature 1: Large Card -->
-      <div class="bento-card bento-wide">
-        <div class="bento-content">
-          <div class="bento-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24"><use href="#icon-api"></use></svg>
-          </div>
-          <h3>Dedicated RESTful Express 5 API</h3>
-          <p>
-            Color generation isn't just client-side rendering — it is supported by dedicated, production-tested endpoints at <code>/api/generate-color</code> and <code>/api/color-from-name</code>, returning structured JSON payloads for third-party integrations.
-          </p>
-          <div class="code-preview-snippet">
-            <div class="snippet-header">
-              <span class="snippet-file">POST /api/generate-color</span>
-              <span class="snippet-badge">200 OK</span>
-            </div>
-            <pre><code>{
-  "red": 0, "green": 198, "blue": 255,
-  "hex": "#00C6FF",
-  "colorName": "Deep Sky Blue",
-  "binary24": "00000000 11000110 11111111",
-  "textColor": "#000000"
-}</code></pre>
-          </div>
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-clipboard"></use></svg>
         </div>
+        <h3>Copy HEX</h3>
+        <p>One-click copy of HEX values to clipboard</p>
       </div>
 
-      <!-- Feature 2 -->
-      <div class="bento-card">
-        <div class="bento-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#icon-bolt"></use></svg>
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-device"></use></svg>
         </div>
-        <h3>Euclidean Distance Classifier</h3>
-        <p>Uses 3D vector distance $\sqrt{(r_1-r_2)^2 + (g_1-g_2)^2 + (b_1-b_2)^2}$ to intelligently classify arbitrary RGB values to their closest human-readable CSS color.</p>
-      </div>
-
-      <!-- Feature 3 -->
-      <div class="bento-card">
-        <div class="bento-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#icon-clipboard"></use></svg>
-        </div>
-        <h3>Intelligent Clipboard Sharing</h3>
-        <p>One-tap HEX copying equipped with asynchronous Clipboard API support and automatic fallback handlers for non-secure HTTP environments.</p>
-      </div>
-
-      <!-- Feature 4 -->
-      <div class="bento-card">
-        <div class="bento-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#icon-device"></use></svg>
-        </div>
-        <h3>Accessible &amp; Mobile-First</h3>
-        <p>Built with WCAG contrast awareness, keyboard skip-links, screen reader aria-labels, and fluid <code>clamp()</code> typography that adapts to any viewport.</p>
-      </div>
-
-      <!-- Feature 5 -->
-      <div class="bento-card">
-        <div class="bento-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#icon-check"></use></svg>
-        </div>
-        <h3>Zero Framework Bloat</h3>
-        <p>Built with clean Vanilla JavaScript, standard EJS templates, and server-side Express 5 architecture for maximum performance and instant load times.</p>
+        <h3>Responsive Design</h3>
+        <p>Works perfectly on desktop, tablet, and mobile devices</p>
       </div>
     </div>
   </section>
 
-  <!-- Real-World Engineering Applications -->
-  <section class="applications-section">
-    <div class="section-head">
-      <div class="section-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24"><use href="#icon-tools"></use></svg>
-        REAL-WORLD APPLICATIONS
-      </div>
-      <h2 class="section-heading">Where Binary Color is Used in Tech</h2>
-      <p class="section-subtext">The identical principles powering this laboratory run millions of production graphics systems.</p>
-    </div>
-
-    <div class="apps-grid">
-      <div class="app-card">
-        <div class="app-tag">WEB ENGINEERING</div>
-        <h4>CSS &amp; Canvas Rendering</h4>
-        <p>Browser rendering engines convert hexadecimal <code>#RRGGBB</code> into 24-bit integer values in memory before pushing pixels to the GPU frame buffer.</p>
-      </div>
-      <div class="app-card">
-        <div class="app-tag">IMAGE COMPRESSION</div>
-        <h4>PNG &amp; JPEG Buffers</h4>
-        <p>Lossless image formats represent uncompressed pixel arrays as consecutive byte triplets: $[R_0, G_0, B_0, R_1, G_1, B_1 \dots]$.</p>
-      </div>
-      <div class="app-card">
-        <div class="app-tag">GPU &amp; SHADERS</div>
-        <h4>GLSL &amp; Metal Shaders</h4>
-        <p>Modern graphics shaders normalize these 0–255 integer byte ranges into normalized floating-point vectors <code>vec3(r, g, b)</code> from 0.0 to 1.0.</p>
-      </div>
-      <div class="app-card">
-        <div class="app-tag">EMBEDDED HARDWARE</div>
-        <h4>OLED &amp; LED Matrix Displays</h4>
-        <p>Microcontrollers (ESP32, Arduino) stream raw 8-bit PWM signals to drive addressable WS2812B NeoPixel diodes via binary serial protocols.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action Section -->
-  <section class="cta-banner">
-    <div class="cta-glow" aria-hidden="true"></div>
-    <div class="cta-inner">
-      <div class="cta-badge">READY TO EXPERIMENT?</div>
-      <h2 class="cta-title">Start Generating Colors with Binary Code</h2>
-      <p class="cta-subtitle">Jump straight into the interactive workspace, type custom 8-bit bytes, and inspect real-time color synthesis.</p>
-      <div class="cta-btn-group">
-        <a href="/generator" class="btn btn-primary btn-large">
-          <svg width="20" height="20" viewBox="0 0 24 24"><use href="#icon-rgb"></use></svg>
-          <span>Launch Full Generator</span>
-          <svg width="18" height="18" viewBox="0 0 24 24"><use href="#icon-arrow"></use></svg>
-        </a>
-        <a href="/about" class="btn btn-secondary btn-large">
-          <span>Read Educational Specs</span>
-        </a>
-      </div>
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Explore?</h2>
+      <p>Start generating colors using binary code and see the magic happen!</p>
+      <a href="/generator" class="btn btn-primary btn-large">
+        <span>Go to Color Generator</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+      </a>
     </div>
   </section>
 </div>
 
-<!-- Interactive Hero Workbench Script -->
-<script>
-  (function () {
-    const presetButtons = document.querySelectorAll('.hw-preset-btn');
-    const swatch = document.getElementById('hwSwatch');
-    const swatchGlow = document.getElementById('hwSwatchGlow');
-    const colorNameEl = document.getElementById('hwColorName');
-    const hexEl = document.getElementById('hwHex');
-    const rgbEl = document.getElementById('hwRgb');
-    const binary24El = document.getElementById('hwBinary24');
-    const contrastEl = document.getElementById('hwContrast');
-
-    const redDecEl = document.getElementById('hwRedDec');
-    const greenDecEl = document.getElementById('hwGreenDec');
-    const blueDecEl = document.getElementById('hwBlueDec');
-
-    const redBar = document.getElementById('hwRedBar');
-    const greenBar = document.getElementById('hwGreenBar');
-    const blueBar = document.getElementById('hwBlueBar');
-
-    const redBits = document.getElementById('hwRedBits');
-    const greenBits = document.getElementById('hwGreenBits');
-    const blueBits = document.getElementById('hwBlueBits');
-
-    function renderBits(container, binaryStr) {
-      if (!container) return;
-      container.innerHTML = '';
-      for (let i = 0; i < binaryStr.length; i++) {
-        const span = document.createElement('span');
-        span.className = 'bit' + (binaryStr[i] === '1' ? ' active' : '');
-        span.textContent = binaryStr[i];
-        container.appendChild(span);
-      }
-    }
-
-    function hexToDec(bin) {
-      return parseInt(bin, 2);
-    }
-
-    presetButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        presetButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const rBin = btn.getAttribute('data-r');
-        const gBin = btn.getAttribute('data-g');
-        const bBin = btn.getAttribute('data-b');
-        const hex = btn.getAttribute('data-hex');
-        const name = btn.getAttribute('data-name');
-        const rgb = btn.getAttribute('data-rgb');
-        const textColor = btn.getAttribute('data-text');
-
-        const rDec = hexToDec(rBin);
-        const gDec = hexToDec(gBin);
-        const bDec = hexToDec(bBin);
-
-        // Update swatch
-        swatch.style.backgroundColor = hex;
-        swatch.style.color = textColor;
-        swatchGlow.style.background = 'radial-gradient(circle, ' + hex + '66 0%, transparent 70%)';
-
-        colorNameEl.textContent = name;
-        hexEl.textContent = hex;
-        rgbEl.textContent = rgb;
-        binary24El.textContent = rBin + ' ' + gBin + ' ' + bBin;
-
-        contrastEl.textContent = textColor === '#000000' ? 'Dark Text (Optimal)' : 'Light Text (Optimal)';
-
-        // Update channel numbers & bars
-        redDecEl.textContent = rDec;
-        greenDecEl.textContent = gDec;
-        blueDecEl.textContent = bDec;
-
-        redBar.style.width = ((rDec / 255) * 100) + '%';
-        greenBar.style.width = ((gDec / 255) * 100) + '%';
-        blueBar.style.width = ((bDec / 255) * 100) + '%';
-
-        // Update bit tracks
-        renderBits(redBits, rBin);
-        renderBits(greenBits, gBin);
-        renderBits(blueBits, bBin);
-      });
-    });
-  })();
-</script>
-
 <style>
   /* ==========================================================================
-     HOME PAGE STYLES — PROFESSIONAL GLASSMORPHIC DESIGN SYSTEM
+     HOME PAGE — PROFESSIONAL, CLEAN, AND MODERN STYLING
      ========================================================================== */
 
   .home-container {
-    max-width: 1240px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: var(--space-4, 16px) var(--space-4, 16px) var(--space-8, 32px);
+    padding: var(--space-6, 24px) var(--space-4, 16px) var(--space-8, 32px);
     position: relative;
     z-index: 1;
   }
 
-  /* Ambient Glow Layers */
+  /* Subtle Ambient Glow */
   .ambient-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(100px);
     pointer-events: none;
     z-index: -1;
-    opacity: 0.45;
+    opacity: 0.25;
   }
 
-  .ambient-glow-1 {
-    top: -50px;
-    left: 20%;
-    width: 600px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(0, 198, 255, 0.22) 0%, transparent 70%);
+  .glow-top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.25) 0%, transparent 70%);
   }
 
-  .ambient-glow-2 {
-    top: 450px;
-    right: 10%;
+  .glow-bottom {
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 500px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(0, 114, 255, 0.18) 0%, transparent 70%);
-  }
-
-  /* Version / Status Pill */
-  .hero-pill-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    background: rgba(0, 198, 255, 0.08);
-    border: 1px solid rgba(0, 198, 255, 0.28);
-    border-radius: var(--radius-pill, 999px);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #e2f4ff;
-    margin-bottom: var(--space-5, 20px);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.1);
-  }
-
-  .pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: #00ffcc;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #00ffcc;
-    animation: pulseGlow 2s infinite ease-in-out;
-  }
-
-  @keyframes pulseGlow {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.85); }
-  }
-
-  .pill-tag {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #ffffff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 10px;
-    letter-spacing: 0.5px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(0, 114, 255, 0.2) 0%, transparent 70%);
   }
 
   /* Hero Section */
   .hero-section {
     text-align: center;
-    padding: var(--space-6, 24px) 0 var(--space-8, 32px);
+    padding: var(--space-8, 32px) var(--space-6, 24px) calc(var(--space-8, 32px) + var(--space-4, 16px));
+    background: rgba(18, 27, 44, 0.6);
+    border: 1px solid rgba(0, 198, 255, 0.15);
+    border-radius: var(--radius-xl, 20px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    margin-bottom: var(--space-8, 32px);
   }
 
-  .hero-header {
-    max-width: 860px;
-    margin: 0 auto var(--space-8, 32px);
+  /* Pill Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(0, 198, 255, 0.08);
+    border: 1px solid rgba(0, 198, 255, 0.25);
+    border-radius: var(--radius-pill, 999px);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #d8ecf8;
+    margin-bottom: var(--space-5, 20px);
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    background: #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ffcc;
   }
 
   .hero-title {
-    font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3, 12px);
+    font-size: clamp(2.3rem, 6vw, 3.4rem);
     font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     margin-bottom: var(--space-4, 16px);
+    flex-wrap: wrap;
+  }
+
+  .hero-arrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-arrow {
+    color: var(--color-accent, #00c6ff);
+    filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.4));
   }
 
   .gradient-text {
@@ -654,46 +259,48 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    display: inline-block;
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.18rem);
-    color: #b5c4d4;
+    font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+    color: #c0d0e0;
     line-height: 1.6;
-    max-width: 680px;
-    margin: 0 auto var(--space-6, 24px);
+    margin-bottom: var(--space-6, 24px);
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .hero-actions {
+  .hero-buttons {
     display: flex;
+    gap: var(--space-3, 12px);
     justify-content: center;
-    gap: var(--space-4, 16px);
+    margin-bottom: var(--space-8, 32px);
     flex-wrap: wrap;
   }
 
   .btn-hero {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 13px 26px;
-    font-size: 0.98rem;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
     font-weight: 600;
     border-radius: var(--radius-md, 10px);
-    transition: all 0.25s ease;
     text-decoration: none;
+    transition: all 0.25s ease;
   }
 
   .btn-hero.btn-primary {
     background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
     color: #ffffff;
-    box-shadow: 0 8px 24px rgba(0, 198, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.3);
     border: none;
   }
 
   .btn-hero.btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 198, 255, 0.45);
+    box-shadow: 0 10px 25px rgba(0, 198, 255, 0.45);
   }
 
   .btn-hero.btn-secondary {
@@ -705,936 +312,269 @@
 
   .btn-hero.btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(0, 198, 255, 0.5);
+    border-color: rgba(0, 198, 255, 0.4);
     transform: translateY(-2px);
   }
 
-  /* ==========================================================================
-     INTERACTIVE WORKBENCH (CENTERPIECE)
-     ========================================================================== */
-
-  .hero-workbench {
-    max-width: 1040px;
-    margin: 0 auto var(--space-8, 32px);
-    perspective: 1000px;
-  }
-
-  .workbench-glass {
-    background: rgba(18, 28, 45, 0.82);
-    border: 1px solid rgba(0, 198, 255, 0.25);
-    border-radius: 20px;
-    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.65), 0 0 35px rgba(0, 198, 255, 0.12);
-    backdrop-filter: blur(16px);
-    overflow: hidden;
-    text-align: left;
-  }
-
-  .workbench-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 18px;
-    background: rgba(12, 19, 32, 0.7);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .window-controls {
-    display: flex;
-    gap: 6px;
-  }
-
-  .window-dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-  }
-
-  .dot-red { background: #ff5f56; }
-  .dot-yellow { background: #ffbd2e; }
-  .dot-green { background: #27c93f; }
-
-  .workbench-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #8da4be;
-  }
-
-  .workbench-status {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.7rem;
-    color: #00ffcc;
-  }
-
-  .status-indicator {
-    width: 7px;
-    height: 7px;
-    background: #00ffcc;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #00ffcc;
-  }
-
-  .workbench-body {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 20px;
-    padding: 24px;
-  }
-
-  /* Channels Preview */
-  .channels-preview {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .channel-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 12px 16px;
-    transition: border-color 0.2s ease;
-  }
-
-  .channel-card:hover {
-    border-color: rgba(0, 198, 255, 0.35);
-  }
-
-  .channel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
-  .channel-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .channel-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-
-  .channel-name {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: #d8e5f2;
-  }
-
-  .channel-val-box {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.85rem;
-  }
-
-  .channel-dec {
-    font-weight: 700;
-    color: #ffffff;
-  }
-
-  .channel-range {
-    color: #718399;
-    font-size: 0.75rem;
-  }
-
-  .bit-track {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 8px;
-  }
-
-  .bit-track .bit {
-    flex: 1;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 5px;
-    padding: 3px 0;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #5d7088;
-    transition: all 0.2s ease;
-  }
-
-  .bit-track .bit.active {
-    background: rgba(0, 198, 255, 0.15);
-    border-color: rgba(0, 198, 255, 0.55);
-    color: #00e5ff;
-    box-shadow: 0 0 10px rgba(0, 198, 255, 0.25);
-  }
-
-  .channel-bar-wrap {
-    height: 4px;
-    background: rgba(0, 0, 0, 0.35);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .channel-bar {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.35s ease;
-  }
-
-  /* Output Swatch & Details */
-  .workbench-output {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .output-swatch-glow {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 80px;
-    filter: blur(40px);
-    z-index: 0;
-    border-radius: 16px;
-    pointer-events: none;
-    transition: background 0.4s ease;
-  }
-
-  .output-swatch {
-    position: relative;
-    z-index: 1;
-    height: 175px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
-    transition: background-color 0.35s ease, color 0.35s ease;
-  }
-
-  .swatch-badge {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    padding: 3px 8px;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.45);
-    color: #ffffff;
-    margin-bottom: 8px;
-    backdrop-filter: blur(4px);
-  }
-
-  .swatch-name {
-    font-size: 1.45rem;
-    font-weight: 800;
-    margin-bottom: 4px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  }
-
-  .swatch-hex {
-    font-family: var(--font-mono, monospace);
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 2px;
-  }
-
-  .swatch-rgb {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.8rem;
-    opacity: 0.85;
-  }
-
-  .output-meta-grid {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .output-meta-pill {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 8px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.78rem;
-  }
-
-  .meta-label {
-    color: #8da4be;
-    font-weight: 600;
-  }
-
-  .meta-val {
-    font-family: var(--font-mono, monospace);
-    color: #00ffcc;
-    font-size: 0.75rem;
-  }
-
-  /* Workbench Footer */
-  .workbench-footer {
-    padding: 14px 20px;
-    background: rgba(10, 16, 27, 0.75);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .presets-intro {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #8da4be;
-  }
-
-  .interactive-presets {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .hw-preset-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    color: #d5e2f0;
-    font-size: 0.8rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .hw-preset-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(0, 198, 255, 0.4);
-    transform: translateY(-1px);
-  }
-
-  .hw-preset-btn.active {
-    background: rgba(0, 198, 255, 0.18);
-    border-color: #00c6ff;
-    color: #ffffff;
-    box-shadow: 0 0 12px rgba(0, 198, 255, 0.25);
-  }
-
-  .preset-chip {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-  }
-
-  /* ==========================================================================
-     METRICS STRIP
-     ========================================================================== */
-
-  .metrics-strip {
+  /* Stats Cards */
+  .hero-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    padding: 24px 16px;
-    margin-top: var(--space-8, 32px);
-    backdrop-filter: blur(12px);
-    position: relative;
-  }
-
-  .metric-card {
-    padding: 0 20px;
-    text-align: left;
-  }
-
-  .metric-value {
-    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.1;
-    margin-bottom: 4px;
-    display: flex;
-    align-items: baseline;
-  }
-
-  .metric-unit {
-    font-size: 1.1rem;
-    color: #00c6ff;
-    margin-left: 2px;
-  }
-
-  .metric-title {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #00e5ff;
-    margin-bottom: 6px;
-    letter-spacing: 0.2px;
-  }
-
-  .metric-desc {
-    font-size: 0.78rem;
-    color: #9ab0c7;
-    line-height: 1.45;
-  }
-
-  .metric-divider {
-    display: none;
-  }
-
-  /* ==========================================================================
-     BIT ANATOMY SECTION
-     ========================================================================== */
-
-  .bit-anatomy-section,
-  .pipeline-section,
-  .bento-section,
-  .applications-section {
-    padding: var(--space-8, 32px) 0;
-  }
-
-  .section-head {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto var(--space-6, 24px);
-  }
-
-  .section-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #00c6ff;
-    padding: 4px 12px;
-    background: rgba(0, 198, 255, 0.08);
-    border: 1px solid rgba(0, 198, 255, 0.2);
-    border-radius: 999px;
-    margin-bottom: 12px;
-  }
-
-  .section-heading {
-    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
-
-  .section-subtext {
-    font-size: 0.95rem;
-    color: #9ab0c7;
-    line-height: 1.55;
-  }
-
-  .anatomy-table-wrap {
+    gap: var(--space-4, 16px);
     max-width: 900px;
     margin: 0 auto;
   }
 
-  .anatomy-card {
-    background: rgba(18, 27, 44, 0.75);
-    border: 1px solid rgba(0, 198, 255, 0.2);
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  }
-
-  .anatomy-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .anatomy-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    padding: 10px 4px;
-  }
-
-  .col-power {
-    font-size: 0.75rem;
-    color: #7991a8;
-  }
-
-  .col-weight {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #00c6ff;
-  }
-
-  .col-bit {
-    font-family: var(--font-mono, monospace);
-    font-size: 1.15rem;
-    font-weight: 800;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .col-bit.bit-on {
-    background: rgba(0, 255, 204, 0.2);
-    color: #00ffcc;
-    border: 1px solid #00ffcc;
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
-  }
-
-  .col-bit.bit-off {
-    background: rgba(255, 255, 255, 0.04);
-    color: #55687d;
+  .stat-card {
+    background: rgba(255, 255, 255, 0.035);
     border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .anatomy-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    padding: 12px 18px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .calc-formula {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.85rem;
-  }
-
-  .formula-label {
-    color: #8da4be;
-    font-weight: 600;
-  }
-
-  .calc-formula code {
-    font-family: var(--font-mono, monospace);
-    color: #e2f0fc;
-    background: rgba(255, 255, 255, 0.06);
-    padding: 4px 8px;
-    border-radius: 6px;
-  }
-
-  .calc-formula code strong {
-    color: #00ffcc;
-  }
-
-  .calc-arrow {
-    color: #00c6ff;
-    font-weight: 700;
-  }
-
-  .calc-result {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-mono, monospace);
-  }
-
-  .res-hex {
-    font-size: 0.88rem;
-    color: #00c6ff;
-  }
-
-  .res-sample {
-    width: 22px;
-    height: 22px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  /* ==========================================================================
-     PIPELINE GRID
-     ========================================================================== */
-
-  .pipeline-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-
-  .pipeline-step {
-    background: rgba(18, 28, 45, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 24px;
-    position: relative;
+    padding: var(--space-4, 16px) var(--space-4, 16px);
+    border-radius: var(--radius-lg, 15px);
+    text-align: center;
     transition: all 0.25s ease;
   }
 
-  .pipeline-step:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 198, 255, 0.35);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-  }
-
-  .step-num-badge {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    font-family: var(--font-mono, monospace);
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.15);
-  }
-
-  .step-icon-wrap {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: rgba(0, 198, 255, 0.12);
-    border: 1px solid rgba(0, 198, 255, 0.3);
-    color: #00c6ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-
-  .step-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 8px;
-  }
-
-  .step-desc {
-    font-size: 0.85rem;
-    color: #9ab0c7;
-    line-height: 1.5;
-    margin-bottom: 14px;
-  }
-
-  .step-desc code {
-    font-family: var(--font-mono, monospace);
-    background: rgba(0, 0, 0, 0.3);
-    padding: 2px 5px;
-    border-radius: 4px;
-    color: #00e5ff;
-  }
-
-  .step-pill code {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.78rem;
-    background: rgba(0, 198, 255, 0.08);
-    border: 1px solid rgba(0, 198, 255, 0.2);
-    color: #00ffcc;
-    padding: 4px 10px;
-    border-radius: 6px;
-    display: inline-block;
-  }
-
-  /* ==========================================================================
-     BENTO GRID (ENTERPRISE FEATURES)
-     ========================================================================== */
-
-  .bento-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .bento-card {
-    background: rgba(18, 28, 45, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    padding: 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transition: all 0.25s ease;
-  }
-
-  .bento-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(0, 198, 255, 0.35);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  }
-
-  .bento-wide {
-    grid-column: span 2;
-  }
-
-  .bento-icon-box {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: rgba(0, 114, 255, 0.15);
-    border: 1px solid rgba(0, 198, 255, 0.3);
-    color: #00c6ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-
-  .bento-card h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 8px;
-  }
-
-  .bento-card p {
-    font-size: 0.88rem;
-    color: #9ab0c7;
-    line-height: 1.55;
-  }
-
-  .bento-card p code {
-    font-family: var(--font-mono, monospace);
-    color: #00ffcc;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-
-  .code-preview-snippet {
-    margin-top: 16px;
-    background: #090e17;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .snippet-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 14px;
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .snippet-file {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.75rem;
-    color: #8da4be;
-  }
-
-  .snippet-badge {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: #00ffcc;
-    background: rgba(0, 255, 204, 0.12);
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-
-  .code-preview-snippet pre {
-    padding: 12px 14px;
-    margin: 0;
-    overflow-x: auto;
-  }
-
-  .code-preview-snippet code {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.8rem;
-    color: #e2f0fc;
-    line-height: 1.5;
-  }
-
-  /* ==========================================================================
-     APPLICATIONS SECTION
-     ========================================================================== */
-
-  .apps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 18px;
-  }
-
-  .app-card {
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 14px;
-    padding: 22px;
-    transition: all 0.25s ease;
-  }
-
-  .app-card:hover {
+  .stat-card:hover {
     border-color: rgba(0, 198, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
     transform: translateY(-2px);
   }
 
-  .app-tag {
-    font-size: 0.68rem;
+  .stat-number {
+    font-size: clamp(1.8rem, 3.5vw, 2.3rem);
     font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #00c6ff;
-    margin-bottom: 8px;
+    color: var(--color-accent, #00c6ff);
+    line-height: 1.1;
+    margin-bottom: 4px;
+    text-shadow: 0 0 15px rgba(0, 198, 255, 0.25);
   }
 
-  .app-card h4 {
-    font-size: 1.05rem;
-    font-weight: 700;
+  .stat-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #9cb3c9;
+  }
+
+  /* Section Title */
+  .section-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 1.9rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
     color: #ffffff;
-    margin-bottom: 6px;
+    margin-bottom: var(--space-6, 24px);
+    position: relative;
+    padding-bottom: var(--space-3, 12px);
   }
 
-  .app-card p {
-    font-size: 0.84rem;
-    color: #9ab0c7;
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--color-accent, #00c6ff), var(--color-accent-2, #0072ff));
+    border-radius: 3px;
+  }
+
+  /* How It Works Section */
+  .how-it-works {
+    margin-bottom: var(--space-8, 32px);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: var(--space-4, 16px);
+  }
+
+  .step-card {
+    background: rgba(18, 27, 44, 0.55);
+    padding: var(--space-6, 24px) var(--space-5, 20px);
+    border-radius: var(--radius-xl, 20px);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 198, 255, 0.35);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+  }
+
+  .step-card .icon-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-3, 12px);
+    box-shadow: 0 4px 12px rgba(0, 198, 255, 0.35);
+  }
+
+  .step-card h3 {
+    margin-bottom: var(--space-2, 8px);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .step-card p {
+    color: #9cb3c9;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-4, 16px);
+    flex-grow: 1;
+  }
+
+  .step-example {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(0, 198, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm, 6px);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.78rem;
+    color: var(--color-accent, #00c6ff);
+    display: inline-block;
+  }
+
+  /* Features Section */
+  .features-section {
+    margin-bottom: var(--space-8, 32px);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4, 16px);
+  }
+
+  .feature-card {
+    background: rgba(18, 27, 44, 0.55);
+    padding: var(--space-6, 24px) var(--space-5, 20px);
+    border-radius: var(--radius-xl, 20px);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 198, 255, 0.35);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+  }
+
+  .feature-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(0, 198, 255, 0.1);
+    border: 1px solid rgba(0, 198, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3, 12px);
+  }
+
+  .feature-icon {
+    color: var(--color-accent, #00c6ff);
+  }
+
+  .feature-card h3 {
+    margin-bottom: var(--space-2, 8px);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .feature-card p {
+    color: #9cb3c9;
+    font-size: 0.88rem;
     line-height: 1.5;
   }
 
-  .app-card p code {
-    font-family: var(--font-mono, monospace);
-    color: #00ffcc;
-  }
-
-  /* ==========================================================================
-     CALL TO ACTION (GLOWING BANNER)
-     ========================================================================== */
-
-  .cta-banner {
-    position: relative;
-    background: linear-gradient(135deg, rgba(0, 114, 255, 0.18) 0%, rgba(0, 198, 255, 0.12) 100%);
-    border: 1px solid rgba(0, 198, 255, 0.35);
-    border-radius: 24px;
+  /* Call to Action Section */
+  .cta-section {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 198, 255, 0.12),
+      rgba(0, 114, 255, 0.06)
+    );
+    border: 1px solid rgba(0, 198, 255, 0.25);
+    border-radius: var(--radius-xl, 20px);
     padding: var(--space-8, 32px) var(--space-5, 20px);
     text-align: center;
-    overflow: hidden;
-    margin-top: var(--space-8, 32px);
-    box-shadow: 0 20px 50px -10px rgba(0, 114, 255, 0.25);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   }
 
-  .cta-glow {
-    position: absolute;
-    top: -50%;
-    left: 20%;
-    width: 60%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(0, 198, 255, 0.25) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .cta-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .cta-badge {
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #00ffcc;
-    margin-bottom: 8px;
-  }
-
-  .cta-title {
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
+  .cta-content h2 {
+    font-size: clamp(1.5rem, 4vw, 1.9rem);
     font-weight: 800;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-bottom: var(--space-2, 8px);
   }
 
-  .cta-subtitle {
+  .cta-content p {
+    color: #c0d0e0;
     font-size: 1rem;
-    color: #c0d3e5;
-    line-height: 1.55;
-    margin-bottom: 24px;
+    margin-bottom: var(--space-6, 24px);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .cta-btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .btn-large {
+  .cta-content .btn-large {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 14px 28px;
+    padding: 13px 28px;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 12px;
     text-decoration: none;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 8px 24px rgba(0, 198, 255, 0.35);
     transition: all 0.25s ease;
   }
 
-  .btn-large.btn-primary {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #ffffff;
-    box-shadow: 0 8px 25px rgba(0, 198, 255, 0.35);
-  }
-
-  .btn-large.btn-primary:hover {
+  .cta-content .btn-large:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(0, 198, 255, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 198, 255, 0.5);
   }
 
-  .btn-large.btn-secondary {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-  }
-
-  .btn-large.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(0, 198, 255, 0.5);
-    transform: translateY(-2px);
-  }
-
-  /* ==========================================================================
-     RESPONSIVE BREAKPOINTS
-     ========================================================================== */
-
-  @media (max-width: 992px) {
-    .workbench-body {
-      grid-template-columns: 1fr;
-    }
-
-    .bento-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .bento-wide {
-      grid-column: span 2;
-    }
-
-    .metrics-strip {
+  /* Responsive Rules */
+  @media (max-width: 900px) {
+    .hero-stats {
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
     }
   }
 
   @media (max-width: 640px) {
-    .hero-actions {
+    .home-container {
+      padding: var(--space-4, 16px) var(--space-3, 12px);
+    }
+
+    .hero-section {
+      padding: var(--space-6, 24px) var(--space-4, 16px);
+    }
+
+    .hero-buttons {
       flex-direction: column;
       align-items: stretch;
     }
@@ -1643,35 +583,22 @@
       justify-content: center;
     }
 
-    .bento-grid {
+    .hero-stats {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat-card {
+      padding: 12px 8px;
+    }
+
+    .steps-grid,
+    .features-grid {
       grid-template-columns: 1fr;
     }
 
-    .bento-wide {
-      grid-column: span 1;
-    }
-
-    .metrics-strip {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .anatomy-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-    }
-
-    .interactive-presets {
-      justify-content: flex-start;
-    }
-
-    .cta-btn-group {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .btn-large {
-      justify-content: center;
+    .cta-section {
+      padding: var(--space-6, 24px) var(--space-4, 16px);
     }
   }
 </style>
