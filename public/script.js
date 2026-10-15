@@ -68,7 +68,11 @@ window.addEventListener("DOMContentLoaded", () => {
         return;
       }
       const hexText = el.hexValue.innerText.replace("HEX: ", "");
-      navigator.clipboard.writeText(hexText);
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(hexText).catch(() => copyFallback(hexText));
+      } else {
+        copyFallback(hexText);
+      }
       el.copyHexBtn.innerText = "Copied!";
       setTimeout(() => (el.copyHexBtn.innerText = "COPY"), 3000);
     });
@@ -113,6 +117,17 @@ function generateColorDebounced() {
 
 function sanitizeBinary(input) {
   return input.replace(/[^01]/g, "").slice(0, 8);
+}
+
+function copyFallback(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (_) {}
+  document.body.removeChild(ta);
 }
 
 function validateBinaryInput(s) {

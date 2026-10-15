@@ -14,22 +14,23 @@
   ],
   "repository": {
     "type": "git",
-    "url": "no repo"
+    "url": "https://github.com/desmondkatorgbande99-hash/Project-Binary-Color-Generator.git"
   },
   "license": "MIT",
   "author": "Gbande Desmond Kator",
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "body-parser": "^2.2.2",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
-    "express-ejs-layouts": "^2.5.1",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.14"
   }
 }

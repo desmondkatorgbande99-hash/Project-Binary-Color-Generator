@@ -27,19 +27,20 @@ app.use((req, res, next) => {
 app.use("/api", colorAPI);
 app.use("/", indexRoutes);
 
+// REDIRECT /dashboard → / (no standalone dashboard page exists)
+app.get("/dashboard", (req, res) => res.redirect("/"));
+
 // FALLBACK FOR UNDEFINED ROUTES
 app.use((req, res) => {
   res.status(404).render("pages/404", {
     title: "404 Not Found | Binary Color Generator",
     activePage: "home",
-    error: "The page you are looking for does not exist.",
-    colorData: null,
   });
 });
 
 // START SERVER
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}!
+  console.log(`Server is running on http://localhost:${PORT}
 
     Press Ctrl+C to stop the server.
   `);
