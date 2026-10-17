@@ -1,604 +1,469 @@
-<div class="home-container">
-  <!-- Subtle ambient glow effects -->
-  <div class="ambient-glow glow-top" aria-hidden="true"></div>
-  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+<div class="vite-home">
+  <!-- Ambient background glow (Vite style) -->
+  <div class="vite-glow" aria-hidden="true"></div>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot" aria-hidden="true"></span>
-        <span>Interactive Educational Tool</span>
-      </div>
-
-      <h1 class="hero-title">
-        <span class="gradient-text">Binary</span>
-        <span class="hero-arrow-wrap" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" class="hero-arrow"><use href="#icon-arrow"></use></svg>
-        </span>
-        <span class="gradient-text">Color</span>
+  <!-- Hero Section (Vite 2-column layout) -->
+  <section class="vite-hero">
+    <div class="vite-hero-main">
+      <h1 class="vite-hero-title">
+        <span class="clip-text">Binary Color</span>
+        <br />
+        <span class="vite-hero-tag">Next Gen Color Engine</span>
       </h1>
 
-      <p class="hero-subtitle">
-        Discover how computers represent millions of colors using only 0s and 1s
+      <p class="vite-hero-subtitle">
+        Fast, lightweight 24-bit RGB visualization. Convert 8-bit binary channels into vibrant digital color with instant mathematical precision.
       </p>
 
-      <div class="hero-buttons">
-        <a href="/generator" class="btn btn-primary btn-hero">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-rgb"></use></svg>
-          <span>Launch Color Generator</span>
+      <div class="vite-actions">
+        <a href="/generator" class="vite-btn vite-btn-primary">
+          <span>Get Started</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </a>
-        <a href="/about" class="btn btn-secondary btn-hero">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-book"></use></svg>
-          <span>Learn More</span>
+
+        <a href="/about" class="vite-btn vite-btn-secondary">
+          <span>Why Binary?</span>
+        </a>
+
+        <a href="https://github.com/desmondkatorgbande99-hash/Project-Binary-Color-Generator" target="_blank" rel="noopener noreferrer" class="vite-btn vite-btn-secondary vite-btn-github" aria-label="View on GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+          </svg>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
 
-    <!-- Stats Cards -->
-    <div class="hero-stats">
-      <div class="stat-card">
-        <div class="stat-number">2</div>
-        <div class="stat-label">Digits (0 &amp; 1)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">8</div>
-        <div class="stat-label">Bits per Channel</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">16.7M</div>
-        <div class="stat-label">Possible Colors</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">200+</div>
-        <div class="stat-label">Color Names</div>
+    <!-- Hero Glowing Logo (Vite-style floating emblem) -->
+    <div class="vite-hero-figure" aria-hidden="true">
+      <div class="vite-logo-glow"></div>
+      <div class="vite-logo-card">
+        <svg class="vite-brand-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="viteGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00c6ff" />
+              <stop offset="100%" stop-color="#0072ff" />
+            </linearGradient>
+            <linearGradient id="viteGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#ff4d4d" />
+              <stop offset="50%" stop-color="#00ffcc" />
+              <stop offset="100%" stop-color="#00c6ff" />
+            </linearGradient>
+            <filter id="viteBlur" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="8" />
+            </filter>
+          </defs>
+
+          <!-- Outer halo ring -->
+          <circle cx="60" cy="60" r="48" stroke="url(#viteGrad2)" stroke-width="2" stroke-dasharray="6 4" opacity="0.6" />
+
+          <!-- Center glowing sphere -->
+          <circle cx="60" cy="60" r="38" fill="url(#viteGrad1)" />
+
+          <!-- Binary 01 Monogram -->
+          <text x="60" y="73" font-family="'JetBrains Mono', monospace" font-size="34" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-1">01</text>
+        </svg>
+
+        <!-- Channel badges around logo -->
+        <div class="vite-channel-badge badge-r">R &bull; 8-bit</div>
+        <div class="vite-channel-badge badge-g">G &bull; 8-bit</div>
+        <div class="vite-channel-badge badge-b">B &bull; 8-bit</div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works Section -->
-  <section class="how-it-works">
-    <h2 class="section-title">How It Works</h2>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="icon-badge">1</div>
-        <h3>Enter Binary</h3>
-        <p>Type 8-bit binary numbers for Red, Green, and Blue channels</p>
-        <code class="step-example">11111111 00000000 00000000</code>
-      </div>
-      <div class="step-card">
-        <div class="icon-badge">2</div>
-        <h3>Convert to Decimal</h3>
-        <p>Each 8-bit binary converts to 0-255 decimal values</p>
-        <code class="step-example">255, 0, 0</code>
-      </div>
-      <div class="step-card">
-        <div class="icon-badge">3</div>
-        <h3>Generate Color</h3>
-        <p>RGB values combine to create a visible color</p>
-        <code class="step-example">rgb(255, 0, 0)</code>
-      </div>
-      <div class="step-card">
-        <div class="icon-badge">4</div>
-        <h3>Display Results</h3>
-        <p>View HEX, 24-bit binary, and color name</p>
-        <code class="step-example">#FF0000</code>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="features-section">
-    <h2 class="section-title">Features</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon-box">
-          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-binary"></use></svg>
+  <!-- Vite-Style Clean Feature Grid -->
+  <section class="vite-features">
+    <div class="vite-grid">
+      <!-- Card 1 -->
+      <div class="vite-card">
+        <div class="vite-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-binary"></use></svg>
         </div>
-        <h3>Binary Input</h3>
-        <p>Direct 8-bit binary input for each RGB channel with real-time validation</p>
+        <h2 class="vite-card-title">Instant Binary Mapping</h2>
+        <p class="vite-card-text">
+          Converts raw 8-bit strings into decimal channel values (0–255) in real time with continuous validation.
+        </p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-box">
-          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-rgb"></use></svg>
+      <!-- Card 2 -->
+      <div class="vite-card">
+        <div class="vite-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-rgb"></use></svg>
         </div>
-        <h3>Live Preview</h3>
-        <p>Instant color display as you type with smooth transitions</p>
+        <h2 class="vite-card-title">24-Bit True Color</h2>
+        <p class="vite-card-text">
+          Combines Red, Green, and Blue channels to explore the entire spectrum of 16,777,216 digital colors.
+        </p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-box">
-          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-tag"></use></svg>
+      <!-- Card 3 -->
+      <div class="vite-card">
+        <div class="vite-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-tag"></use></svg>
         </div>
-        <h3>Color Name Detection</h3>
-        <p>Automatically detects color names from 200+ predefined colors</p>
+        <h2 class="vite-card-title">Color Name Detection</h2>
+        <p class="vite-card-text">
+          Intelligently matches custom coordinates to the closest named CSS color using 3D Euclidean distance.
+        </p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-box">
-          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-bolt"></use></svg>
+      <!-- Card 4 -->
+      <div class="vite-card">
+        <div class="vite-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-bolt"></use></svg>
         </div>
-        <h3>Quick Presets</h3>
-        <p>One-click presets for common colors and grayscale shades</p>
+        <h2 class="vite-card-title">One-Click Presets</h2>
+        <p class="vite-card-text">
+          Instant quick-picks for primary tones, secondary hues, and grayscale values to accelerate learning.
+        </p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-box">
-          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-clipboard"></use></svg>
+      <!-- Card 5 -->
+      <div class="vite-card">
+        <div class="vite-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-clipboard"></use></svg>
         </div>
-        <h3>Copy HEX</h3>
-        <p>One-click copy of HEX values to clipboard</p>
+        <h2 class="vite-card-title">Copy-Ready HEX</h2>
+        <p class="vite-card-text">
+          Direct clipboard export with automatic fallback support for non-HTTPS hosting environments.
+        </p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-box">
-          <svg class="feature-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-device"></use></svg>
+      <!-- Card 6 -->
+      <div class="vite-card">
+        <div class="vite-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-device"></use></svg>
         </div>
-        <h3>Responsive Design</h3>
-        <p>Works perfectly on desktop, tablet, and mobile devices</p>
+        <h2 class="vite-card-title">Clean &amp; Lightweight</h2>
+        <p class="vite-card-text">
+          Built without bloated client-side frameworks. Native CSS, standard EJS templates, and fast Express 5 routes.
+        </p>
       </div>
-    </div>
-  </section>
-
-  <!-- Call to Action -->
-  <section class="cta-section">
-    <div class="cta-content">
-      <h2>Ready to Explore?</h2>
-      <p>Start generating colors using binary code and see the magic happen!</p>
-      <a href="/generator" class="btn btn-primary btn-large">
-        <span>Go to Color Generator</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-      </a>
     </div>
   </section>
 </div>
 
 <style>
   /* ==========================================================================
-     HOME PAGE — PROFESSIONAL, CLEAN, AND MODERN STYLING
+     VITE-INSPIRED MINIMALIST HOMEPAGE
      ========================================================================== */
 
-  .home-container {
-    max-width: 1200px;
+  .vite-home {
+    max-width: 1120px;
     margin: 0 auto;
     padding: var(--space-6, 24px) var(--space-4, 16px) var(--space-8, 32px);
     position: relative;
     z-index: 1;
   }
 
-  /* Subtle Ambient Glow */
-  .ambient-glow {
+  /* Vite-Style Ambient Radial Glow */
+  .vite-glow {
     position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.16) 0%, rgba(0, 114, 255, 0.08) 45%, transparent 70%);
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(80px);
     pointer-events: none;
     z-index: -1;
-    opacity: 0.25;
   }
 
-  .glow-top {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 650px;
-    height: 320px;
-    background: radial-gradient(circle, rgba(0, 198, 255, 0.25) 0%, transparent 70%);
-  }
-
-  .glow-bottom {
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(0, 114, 255, 0.2) 0%, transparent 70%);
-  }
-
-  /* Hero Section */
-  .hero-section {
-    text-align: center;
-    padding: var(--space-8, 32px) var(--space-6, 24px) calc(var(--space-8, 32px) + var(--space-4, 16px));
-    background: rgba(18, 27, 44, 0.6);
-    border: 1px solid rgba(0, 198, 255, 0.15);
-    border-radius: var(--radius-xl, 20px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    margin-bottom: var(--space-8, 32px);
-  }
-
-  /* Pill Badge */
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    background: rgba(0, 198, 255, 0.08);
-    border: 1px solid rgba(0, 198, 255, 0.25);
-    border-radius: var(--radius-pill, 999px);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #d8ecf8;
-    margin-bottom: var(--space-5, 20px);
-  }
-
-  .badge-dot {
-    width: 7px;
-    height: 7px;
-    background: #00ffcc;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #00ffcc;
-  }
-
-  .hero-title {
+  /* Hero Section (Vite 2-column) */
+  .vite-hero {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-3, 12px);
-    font-size: clamp(2.3rem, 6vw, 3.4rem);
+    justify-content: space-between;
+    gap: 48px;
+    padding: 48px 0 64px;
+  }
+
+  .vite-hero-main {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .vite-hero-title {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
     font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-4, 16px);
-    flex-wrap: wrap;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    margin-bottom: 18px;
+    color: #ffffff;
   }
 
-  .hero-arrow-wrap {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-arrow {
-    color: var(--color-accent, #00c6ff);
-    filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.4));
-  }
-
-  .gradient-text {
-    background: linear-gradient(135deg, #00e5ff 0%, #0072ff 100%);
+  .clip-text {
+    background: linear-gradient(125deg, #00d4ff 15%, #0072ff 60%, #9945ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  .hero-subtitle {
-    font-size: clamp(1.05rem, 2.2vw, 1.22rem);
-    color: #c0d0e0;
-    line-height: 1.6;
-    margin-bottom: var(--space-6, 24px);
-    max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
+  .vite-hero-tag {
+    color: #edf2f7;
+    font-weight: 700;
   }
 
-  .hero-buttons {
+  .vite-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 32px;
+    max-width: 500px;
+  }
+
+  /* Vite Pill Buttons */
+  .vite-actions {
     display: flex;
-    gap: var(--space-3, 12px);
-    justify-content: center;
-    margin-bottom: var(--space-8, 32px);
+    align-items: center;
+    gap: 12px;
     flex-wrap: wrap;
   }
 
-  .btn-hero {
+  .vite-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
-    font-size: 0.95rem;
+    padding: 10px 22px;
+    font-size: 0.94rem;
     font-weight: 600;
-    border-radius: var(--radius-md, 10px);
+    border-radius: 999px;
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
   }
 
-  .btn-hero.btn-primary {
+  .vite-btn-primary {
     background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
     color: #ffffff;
-    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.3);
-    border: none;
+    box-shadow: 0 4px 14px rgba(0, 198, 255, 0.28);
+    border: 1px solid transparent;
   }
 
-  .btn-hero.btn-primary:hover {
+  .vite-btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 198, 255, 0.45);
+    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.45);
   }
 
-  .btn-hero.btn-secondary {
+  .vite-btn-secondary {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e2e8f0;
   }
 
-  .btn-hero.btn-secondary:hover {
+  .vite-btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(0, 198, 255, 0.4);
     transform: translateY(-2px);
-  }
-
-  /* Stats Cards */
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-4, 16px);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .stat-card {
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: var(--space-4, 16px) var(--space-4, 16px);
-    border-radius: var(--radius-lg, 15px);
-    text-align: center;
-    transition: all 0.25s ease;
-  }
-
-  .stat-card:hover {
-    border-color: rgba(0, 198, 255, 0.3);
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-2px);
-  }
-
-  .stat-number {
-    font-size: clamp(1.8rem, 3.5vw, 2.3rem);
-    font-weight: 800;
-    color: var(--color-accent, #00c6ff);
-    line-height: 1.1;
-    margin-bottom: 4px;
-    text-shadow: 0 0 15px rgba(0, 198, 255, 0.25);
-  }
-
-  .stat-label {
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: #9cb3c9;
-  }
-
-  /* Section Title */
-  .section-title {
-    text-align: center;
-    font-size: clamp(1.5rem, 4vw, 1.9rem);
-    font-weight: 800;
-    letter-spacing: -0.01em;
     color: #ffffff;
-    margin-bottom: var(--space-6, 24px);
+  }
+
+  .vite-btn-github {
+    padding: 10px 18px;
+  }
+
+  /* Hero Figure (Floating Logo) */
+  .vite-hero-figure {
     position: relative;
-    padding-bottom: var(--space-3, 12px);
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
-  .section-title::after {
-    content: "";
+  .vite-logo-glow {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(135deg, var(--color-accent, #00c6ff), var(--color-accent-2, #0072ff));
-    border-radius: 3px;
-  }
-
-  /* How It Works Section */
-  .how-it-works {
-    margin-bottom: var(--space-8, 32px);
-  }
-
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: var(--space-4, 16px);
-  }
-
-  .step-card {
-    background: rgba(18, 27, 44, 0.55);
-    padding: var(--space-6, 24px) var(--space-5, 20px);
-    border-radius: var(--radius-xl, 20px);
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .step-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 198, 255, 0.35);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-  }
-
-  .step-card .icon-badge {
-    width: 36px;
-    height: 36px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.35) 0%, rgba(0, 114, 255, 0.15) 50%, transparent 70%);
     border-radius: 50%;
-    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 0.95rem;
+    filter: blur(40px);
+    animation: vitePulse 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes vitePulse {
+    0% { transform: scale(0.9); opacity: 0.6; }
+    100% { transform: scale(1.15); opacity: 0.9; }
+  }
+
+  .vite-logo-card {
+    position: relative;
+    width: 190px;
+    height: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto var(--space-3, 12px);
-    box-shadow: 0 4px 12px rgba(0, 198, 255, 0.35);
+    animation: viteFloat 5s ease-in-out infinite;
   }
 
-  .step-card h3 {
-    margin-bottom: var(--space-2, 8px);
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 700;
+  @keyframes viteFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
 
-  .step-card p {
-    color: #9cb3c9;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    margin-bottom: var(--space-4, 16px);
-    flex-grow: 1;
+  .vite-brand-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
   }
 
-  .step-example {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(0, 198, 255, 0.2);
-    padding: 4px 10px;
-    border-radius: var(--radius-sm, 6px);
+  .vite-channel-badge {
+    position: absolute;
     font-family: var(--font-mono, monospace);
-    font-size: 0.78rem;
-    color: var(--color-accent, #00c6ff);
-    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 
-  /* Features Section */
-  .features-section {
-    margin-bottom: var(--space-8, 32px);
+  .badge-r {
+    top: 5px;
+    left: -15px;
+    color: #ff5c5c;
+    border-color: rgba(255, 92, 92, 0.35);
   }
 
-  .features-grid {
+  .badge-g {
+    top: 25px;
+    right: -25px;
+    color: #00ffcc;
+    border-color: rgba(0, 255, 204, 0.35);
+  }
+
+  .badge-b {
+    bottom: 5px;
+    left: 20px;
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.35);
+  }
+
+  /* Vite-Style 3x2 Grid */
+  .vite-features {
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .vite-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-4, 16px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 
-  .feature-card {
-    background: rgba(18, 27, 44, 0.55);
-    padding: var(--space-6, 24px) var(--space-5, 20px);
-    border-radius: var(--radius-xl, 20px);
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 198, 255, 0.35);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-  }
-
-  .feature-icon-box {
-    width: 50px;
-    height: 50px;
+  .vite-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 12px;
-    background: rgba(0, 198, 255, 0.1);
-    border: 1px solid rgba(0, 198, 255, 0.25);
+    padding: 24px;
+    transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+  }
+
+  .vite-card:hover {
+    background: rgba(255, 255, 255, 0.045);
+    border-color: rgba(0, 198, 255, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .vite-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(0, 198, 255, 0.08);
+    color: #00c6ff;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--space-3, 12px);
+    margin-bottom: 14px;
   }
 
-  .feature-icon {
-    color: var(--color-accent, #00c6ff);
-  }
-
-  .feature-card h3 {
-    margin-bottom: var(--space-2, 8px);
-    color: #ffffff;
-    font-size: 1.1rem;
+  .vite-card-title {
+    font-size: 1.02rem;
     font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
   }
 
-  .feature-card p {
-    color: #9cb3c9;
+  .vite-card-text {
     font-size: 0.88rem;
-    line-height: 1.5;
+    line-height: 1.55;
+    color: #94a3b8;
+    margin: 0;
   }
 
-  /* Call to Action Section */
-  .cta-section {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 198, 255, 0.12),
-      rgba(0, 114, 255, 0.06)
-    );
-    border: 1px solid rgba(0, 198, 255, 0.25);
-    border-radius: var(--radius-xl, 20px);
-    padding: var(--space-8, 32px) var(--space-5, 20px);
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  }
-
-  .cta-content h2 {
-    font-size: clamp(1.5rem, 4vw, 1.9rem);
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: var(--space-2, 8px);
-  }
-
-  .cta-content p {
-    color: #c0d0e0;
-    font-size: 1rem;
-    margin-bottom: var(--space-6, 24px);
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-content .btn-large {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 12px;
-    text-decoration: none;
-    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-    color: #ffffff;
-    border: none;
-    box-shadow: 0 8px 24px rgba(0, 198, 255, 0.35);
-    transition: all 0.25s ease;
-  }
-
-  .cta-content .btn-large:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 198, 255, 0.5);
-  }
-
-  /* Responsive Rules */
+  /* Responsive Breakpoints */
   @media (max-width: 900px) {
-    .hero-stats {
+    .vite-hero {
+      flex-direction: column-reverse;
+      text-align: center;
+      padding: 32px 0 48px;
+      gap: 32px;
+    }
+
+    .vite-hero-main {
+      max-width: 100%;
+    }
+
+    .vite-hero-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .vite-actions {
+      justify-content: center;
+    }
+
+    .vite-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 640px) {
-    .home-container {
+  @media (max-width: 600px) {
+    .vite-home {
       padding: var(--space-4, 16px) var(--space-3, 12px);
     }
 
-    .hero-section {
-      padding: var(--space-6, 24px) var(--space-4, 16px);
+    .vite-hero {
+      padding: 20px 0 36px;
     }
 
-    .hero-buttons {
+    .vite-hero-figure {
+      width: 220px;
+      height: 220px;
+    }
+
+    .vite-logo-card {
+      width: 150px;
+      height: 150px;
+    }
+
+    .vite-actions {
       flex-direction: column;
       align-items: stretch;
-    }
-
-    .btn-hero {
-      justify-content: center;
-    }
-
-    .hero-stats {
-      grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .stat-card {
-      padding: 12px 8px;
+    .vite-btn {
+      justify-content: center;
     }
 
-    .steps-grid,
-    .features-grid {
+    .vite-grid {
       grid-template-columns: 1fr;
+      gap: 12px;
     }
 
-    .cta-section {
-      padding: var(--space-6, 24px) var(--space-4, 16px);
+    .vite-card {
+      padding: 20px;
     }
   }
 </style>
