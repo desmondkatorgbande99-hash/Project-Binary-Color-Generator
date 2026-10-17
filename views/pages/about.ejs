@@ -1,290 +1,575 @@
-<div class="about-container">
-  <div class="about-header">
-    <h1><svg width="30" height="30" viewBox="0 0 24 24"><use href="#icon-info" xlink:href="#icon-info"></use></svg> About This Project</h1>
-    <p>Learn about the Binary Color Generator and its educational purpose</p>
-  </div>
+<div class="vite-about">
+  <!-- Ambient background glow (Vite style) -->
+  <div class="vite-glow" aria-hidden="true"></div>
 
-  <div class="about-content">
+  <!-- Header Section -->
+  <header class="vite-about-header">
+    <div class="vite-about-badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      <span>Documentation &bull; Educational Architecture</span>
+    </div>
+
+    <h1 class="vite-about-title">
+      About <span class="clip-text">Binary Color</span>
+    </h1>
+
+    <p class="vite-about-subtitle">
+      Understanding the mathematical bridge between fundamental 8-bit binary bytes and 24-bit true color representation.
+    </p>
+
+    <div class="vite-about-actions">
+      <a href="/generator" class="vite-btn vite-btn-primary">
+        <span>Launch Generator</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+      <a href="https://github.com/desmondkatorgbande99-hash/Project-Binary-Color-Generator" target="_blank" rel="noopener noreferrer" class="vite-btn vite-btn-secondary" aria-label="View source on GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+        </svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Content Cards (Vite clean card layout) -->
+  <main class="vite-about-grid">
     <!-- Project Overview -->
-    <section class="about-section">
-      <h2><svg class="section-icon" width="22" height="22" viewBox="0 0 24 24"><use href="#icon-book" xlink:href="#icon-book"></use></svg> Project Overview</h2>
-      <p>
-        The <strong>Binary Color Generator</strong> is an interactive web-based
-        educational tool that demonstrates the fundamental relationship between
-        binary numbers and digital color representation in computer systems.
+    <article class="vite-about-card">
+      <div class="card-header">
+        <div class="vite-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-book"></use></svg>
+        </div>
+        <h2 class="card-title">Project Overview</h2>
+      </div>
+      <p class="card-text">
+        The <strong>Binary Color Generator</strong> is an interactive web-based educational laboratory designed to illuminate the relationship between binary logic and digital color representation across computer systems.
       </p>
-      <p>
-        This project bridges the conceptual gap between abstract binary concepts
-        and concrete visual outcomes, helping students understand how computers
-        represent and display colors using only 0s and 1s.
+      <p class="card-text">
+        By converting abstract strings of 0s and 1s into tangible RGB values and hex codes, this tool helps learners conceptualize how modern screens, GPUs, and web rendering engines interpret discrete memory states into 16.7 million vibrant colors.
       </p>
-    </section>
+    </article>
 
-    <!-- How It Works -->
-    <section class="about-section">
-      <h2><svg class="section-icon" width="22" height="22" viewBox="0 0 24 24"><use href="#icon-process" xlink:href="#icon-process"></use></svg> How It Works</h2>
-      <div class="workflow">
-        <div class="workflow-step">
-          <div class="icon-badge">1</div>
-          <div class="step-content">
-            <h3>Input Binary Values</h3>
-            <p>
-              Enter 8-bit binary strings for Red, Green, and Blue channels
-              (e.g., 11111111)
-            </p>
+    <!-- How It Works Workflow -->
+    <article class="vite-about-card">
+      <div class="card-header">
+        <div class="vite-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-process"></use></svg>
+        </div>
+        <h2 class="card-title">How It Works</h2>
+      </div>
+      <div class="vite-pipeline">
+        <div class="pipeline-item">
+          <span class="pipeline-badge">01</span>
+          <div class="pipeline-content">
+            <h3>Binary Stream Input</h3>
+            <p>Three 8-bit strings are entered for Red, Green, and Blue (e.g. <code>11111111</code>) with real-time input sanitization.</p>
           </div>
         </div>
-        <div class="workflow-step">
-          <div class="icon-badge">2</div>
-          <div class="step-content">
+
+        <div class="pipeline-item">
+          <span class="pipeline-badge">02</span>
+          <div class="pipeline-content">
             <h3>Binary to Decimal Conversion</h3>
-            <p>
-              Each 8-bit binary string is converted to a decimal value (0-255)
-            </p>
+            <p>Each byte is calculated via powers of two ($2^7 \dots 2^0$) to produce an integer value between 0 and 255.</p>
           </div>
         </div>
-        <div class="workflow-step">
-          <div class="icon-badge">3</div>
-          <div class="step-content">
-            <h3>Color Generation</h3>
-            <p>The three decimal values combine to create an RGB color</p>
+
+        <div class="pipeline-item">
+          <span class="pipeline-badge">03</span>
+          <div class="pipeline-content">
+            <h3>RGB Color Synthesis</h3>
+            <p>The three discrete decimal intensities are combined in 3D color space to construct a composite RGB pixel.</p>
           </div>
         </div>
-        <div class="workflow-step">
-          <div class="icon-badge">4</div>
-          <div class="step-content">
-            <h3>Visual Display</h3>
-            <p>
-              The color is displayed with its RGB, Hex, and 24-bit binary
-              representations
-            </p>
+
+        <div class="pipeline-item">
+          <span class="pipeline-badge">04</span>
+          <div class="pipeline-content">
+            <h3>Visual &amp; Hex Display</h3>
+            <p>The synthesized color is rendered alongside its CSS <code>#RRGGBB</code> hex string, nearest named color, and contrast guide.</p>
           </div>
         </div>
       </div>
-    </section>
+    </article>
 
     <!-- Technology Stack -->
-    <section class="about-section">
-      <h2><svg class="section-icon" width="22" height="22" viewBox="0 0 24 24"><use href="#icon-tools" xlink:href="#icon-tools"></use></svg> Technology Stack</h2>
-      <div class="tech-stack">
-        <div class="tech-item">Node.js</div>
-        <div class="tech-item">Express.js</div>
-        <div class="tech-item">EJS Templates</div>
-        <div class="tech-item">HTML5</div>
-        <div class="tech-item">CSS3</div>
-        <div class="tech-item">JavaScript (ES6)</div>
-        <div class="tech-item">RESTful API</div>
+    <article class="vite-about-card">
+      <div class="card-header">
+        <div class="vite-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-tools"></use></svg>
+        </div>
+        <h2 class="card-title">Technology Stack</h2>
       </div>
-    </section>
-
-    
+      <p class="card-text">
+        Engineered with a minimalist footprint — fast server-side rendering, robust APIs, and zero client-side framework bloat.
+      </p>
+      <div class="vite-tech-tags">
+        <span class="vite-tag">Node.js</span>
+        <span class="vite-tag">Express 5</span>
+        <span class="vite-tag">EJS Templates</span>
+        <span class="vite-tag">RESTful API</span>
+        <span class="vite-tag">Vanilla JavaScript</span>
+        <span class="vite-tag">Modern CSS3</span>
+        <span class="vite-tag">HTML5 Semantic</span>
+      </div>
+    </article>
 
     <!-- Learning Outcomes -->
-    <section class="about-section">
-      <h2><svg class="section-icon" width="22" height="22" viewBox="0 0 24 24"><use href="#icon-graduation" xlink:href="#icon-graduation"></use></svg> Learning Outcomes</h2>
-      <p>After using this tool, you will be able to:</p>
-      <ul class="outcomes-list">
-        <li><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Convert binary numbers to decimal and hexadecimal</li>
-        <li><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Explain how computers represent colors using binary</li>
-        <li><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Identify the binary patterns for primary and secondary colors</li>
-        <li><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Understand the 24-bit true color system (16.7 million colors)</li>
-        <li><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Recognize the relationship between bit patterns and color intensity</li>
+    <article class="vite-about-card">
+      <div class="card-header">
+        <div class="vite-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-graduation"></use></svg>
+        </div>
+        <h2 class="card-title">Learning Outcomes</h2>
+      </div>
+      <p class="card-text">Through hands-on interaction with this workbench, learners will be able to:</p>
+      <ul class="vite-checklist">
+        <li>
+          <span class="check-bullet" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span>Convert 8-bit binary bytes into decimal channels (0–255) and hexadecimal notation.</span>
+        </li>
+        <li>
+          <span class="check-bullet" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span>Explain how digital screens combine Red, Green, and Blue light to formulate composite pixels.</span>
+        </li>
+        <li>
+          <span class="check-bullet" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span>Identify canonical binary patterns for primary, secondary, and grayscale spectrums.</span>
+        </li>
+        <li>
+          <span class="check-bullet" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span>Understand 24-bit True Color architecture ($256^3 = 16,777,216$ total variations).</span>
+        </li>
+        <li>
+          <span class="check-bullet" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span>Appreciate the mathematical relationship between bit patterns and visual light intensity.</span>
+        </li>
       </ul>
-    </section>
+    </article>
 
-    <!-- Credits -->
-    <section class="about-section">
-      <h2><svg class="section-icon" width="22" height="22" viewBox="0 0 24 24"><use href="#icon-credits" xlink:href="#icon-credits"></use></svg> Credits</h2>
-      <p>
-        This project was developed by <strong>Gbande Desmond Kator</strong>, as an educational tool for computer science
-        students learning about binary number systems and digital color
-        representation.
+    <!-- Author & Credits -->
+    <article class="vite-about-card vite-card-credits">
+      <div class="card-header">
+        <div class="vite-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-credits"></use></svg>
+        </div>
+        <h2 class="card-title">Author &amp; Project Info</h2>
+      </div>
+      <p class="card-text">
+        Developed and maintained by <strong>Gbande Desmond Kator</strong> as an open educational utility for students, software engineers, and digital design enthusiasts.
       </p>
-      <p>
-        <strong>Project Type:</strong> Web-Based Educational Tool<br />
-        <strong>License:</strong> MIT
-      </p>
-    </section>
-  </div>
+      <div class="credits-meta-row">
+        <div class="meta-item">
+          <span class="meta-label">Author</span>
+          <span class="meta-val">Gbande Desmond Kator</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Type</span>
+          <span class="meta-val">Web-Based Educational Tool</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">License</span>
+          <span class="meta-val">MIT License</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Repository</span>
+          <a href="https://github.com/desmondkatorgbande99-hash/Project-Binary-Color-Generator" target="_blank" rel="noopener noreferrer" class="meta-val meta-link">GitHub &nearr;</a>
+        </div>
+      </div>
+    </article>
+  </main>
 </div>
 
 <style>
-  .about-container {
-    max-width: 1000px;
+  /* ==========================================================================
+     VITE-STYLE ABOUT PAGE
+     ========================================================================== */
+
+  .vite-about {
+    max-width: 980px;
     margin: 0 auto;
-    padding: var(--space-6, 24px) var(--space-5, 20px);
+    padding: var(--space-6, 24px) var(--space-4, 16px) var(--space-8, 32px);
+    position: relative;
+    z-index: 1;
   }
 
-  .about-header {
+  /* Vite-Style Ambient Radial Glow */
+  .vite-glow {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.15) 0%, rgba(0, 114, 255, 0.08) 50%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Header */
+  .vite-about-header {
     text-align: center;
-    margin-bottom: var(--space-8, 32px);
+    padding: 32px 0 40px;
+    max-width: 680px;
+    margin: 0 auto;
   }
 
-  .about-header h1 {
+  .vite-about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    background: rgba(0, 198, 255, 0.08);
+    border: 1px solid rgba(0, 198, 255, 0.22);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #e2f4ff;
+    margin-bottom: 20px;
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    background: #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ffcc;
+  }
+
+  .vite-about-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .clip-text {
+    background: linear-gradient(125deg, #00d4ff 15%, #0072ff 60%, #9945ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .vite-about-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 28px;
+  }
+
+  /* Pill Buttons */
+  .vite-about-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .vite-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .vite-btn-primary {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 198, 255, 0.28);
+    border: 1px solid transparent;
+  }
+
+  .vite-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.45);
+  }
+
+  .vite-btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e2e8f0;
+  }
+
+  .vite-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 198, 255, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff;
+  }
+
+  /* Grid of Vite Cards */
+  .vite-about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .vite-about-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 26px 28px;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  }
+
+  .vite-about-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(0, 198, 255, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .vite-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(0, 198, 255, 0.08);
+    color: #00c6ff;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-2, 8px);
-    font-size: clamp(1.6rem, 5vw, 2.5rem);
-    margin-bottom: var(--space-2, 8px);
-    color: var(--color-accent, #00c6ff);
-  }
-
-  .about-header p {
-    color: var(--color-text-muted, #cccccc);
-  }
-
-  .about-section {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: var(--radius-xl, 20px);
-    padding: var(--space-6, 24px);
-    margin-bottom: var(--space-5, 20px);
-  }
-
-  .about-section h2 {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2, 8px);
-    margin-bottom: var(--space-5, 20px);
-    font-size: 1.4rem;
-    border-left: 4px solid var(--color-accent, #00c6ff);
-    padding-left: var(--space-3, 12px);
-  }
-
-  .section-icon {
-    color: var(--color-accent, #00c6ff);
     flex-shrink: 0;
   }
 
-  .about-section p {
-    line-height: 1.6;
-    margin-bottom: var(--space-3, 12px);
-    color: var(--color-text-muted, #cccccc);
-  }
-
-  /* Workflow Steps — numbered because they are a real, ordered process */
-  .workflow {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4, 16px);
-  }
-
-  .workflow-step {
-    display: flex;
-    gap: var(--space-4, 16px);
-    align-items: flex-start;
-  }
-
-  .step-content h3 {
-    margin-bottom: var(--space-1, 4px);
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
     color: #ffffff;
+    letter-spacing: -0.01em;
+    margin: 0;
   }
 
-  .step-content p {
+  .card-text {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #94a3b8;
+    margin-bottom: 12px;
+  }
+
+  .card-text:last-child {
     margin-bottom: 0;
   }
 
-  /* Tech Stack */
-  .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3, 12px);
-  }
-
-  .tech-item {
-    background: linear-gradient(135deg, var(--color-accent, #00c6ff), var(--color-accent-2, #0072ff));
-    padding: var(--space-2, 8px) var(--space-4, 16px);
-    border-radius: var(--radius-lg, 15px);
-    font-size: 0.9rem;
-    font-weight: 500;
+  .card-text strong {
     color: #ffffff;
   }
 
-  /* API Endpoints */
-  .api-endpoints {
+  /* Workflow Pipeline */
+  .vite-pipeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .pipeline-item {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-3, 12px);
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 16px;
   }
 
-  .api-card {
-    background: rgba(0, 0, 0, 0.3);
-    padding: var(--space-4, 16px);
-    border-radius: var(--radius-md, 10px);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-3, 12px);
-  }
-
-  .method {
-    padding: var(--space-1, 4px) var(--space-2, 8px);
-    border-radius: var(--radius-sm, 6px);
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: #ffffff;
-  }
-
-  .method.post {
-    background: #1f9d55;
-  }
-
-  .method.get {
-    background: #2f7fe0;
-  }
-
-  .endpoint {
+  .pipeline-badge {
     font-family: var(--font-mono, monospace);
-    font-size: 1rem;
-    color: var(--color-accent, #00c6ff);
-  }
-
-  .api-card p {
-    margin: 0;
-    color: var(--color-text-muted, #cccccc);
-  }
-
-  /* Outcomes List */
-  .outcomes-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .outcomes-list li {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2, 8px);
-    padding: var(--space-2, 8px) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--color-text-muted, #cccccc);
-  }
-
-  .check-icon {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #00c6ff;
+    background: rgba(0, 198, 255, 0.12);
+    border: 1px solid rgba(0, 198, 255, 0.25);
+    padding: 3px 8px;
+    border-radius: 6px;
     flex-shrink: 0;
   }
 
+  .pipeline-content h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .pipeline-content p {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  .pipeline-content code {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.78rem;
+    color: #00ffcc;
+    background: rgba(0, 255, 204, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* Tech Tags */
+  .vite-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .vite-tag {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .vite-tag:hover {
+    background: rgba(0, 198, 255, 0.12);
+    border-color: rgba(0, 198, 255, 0.4);
+    color: #ffffff;
+  }
+
+  /* Checklist */
+  .vite-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .vite-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #94a3b8;
+  }
+
+  .check-bullet {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 255, 204, 0.12);
+    border: 1px solid rgba(0, 255, 204, 0.35);
+    color: #00ffcc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Credits Meta */
+  .credits-meta-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .meta-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .meta-val {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e2e8f0;
+  }
+
+  .meta-link {
+    color: #00c6ff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .meta-link:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+  }
+
+  /* Responsive Rules */
   @media (max-width: 768px) {
-    .about-container {
-      padding: var(--space-4, 16px);
+    .vite-about-header {
+      padding: 24px 0 32px;
     }
 
-    .about-section {
-      padding: var(--space-4, 16px);
+    .vite-pipeline {
+      grid-template-columns: 1fr;
     }
 
-    .workflow-step {
+    .credits-meta-row {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .vite-about-card {
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .vite-about {
+      padding: var(--space-4, 16px) var(--space-3, 12px);
+    }
+
+    .vite-about-actions {
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      align-items: stretch;
     }
 
-    .api-card {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .outcomes-list li {
+    .vite-btn {
       justify-content: center;
+    }
+
+    .credits-meta-row {
+      grid-template-columns: 1fr;
     }
   }
 </style>
