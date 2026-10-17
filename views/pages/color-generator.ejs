@@ -183,7 +183,57 @@
 
   @media (max-width: 768px) {
     .generator-container {
-      padding: var(--space-3, 12px);
+      padding: var(--space-4, 16px) var(--space-3, 12px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .generator-container {
+      padding: 16px 8px 24px;
+    }
+
+    .generator-container .container {
+      padding: 18px 12px;
+      border-radius: 14px;
+    }
+
+    .generator-header h1 {
+      font-size: 1.6rem;
+    }
+
+    .generator-header p {
+      font-size: 0.88rem;
+      padding: 0 8px;
+    }
+
+    .input-group input {
+      font-size: 16px; /* Prevents iOS auto-zoom on input focus */
+    }
+
+    .presets {
+      gap: 6px;
+    }
+
+    .preset-btn,
+    .preset-name-btn {
+      min-height: 44px;
+      padding: 8px 4px;
+      font-size: 0.78rem;
+    }
+
+    #colorDisplay {
+      height: 130px;
+      font-size: 0.95rem;
+    }
+
+    .hex-row {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #copyHexBtn {
+      width: 100%;
+      min-height: 44px;
     }
   }
 </style>

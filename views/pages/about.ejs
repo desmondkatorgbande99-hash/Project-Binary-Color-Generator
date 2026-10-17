@@ -537,39 +537,102 @@
 
   /* Responsive Rules */
   @media (max-width: 768px) {
+    .vite-about {
+      overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     .vite-about-header {
-      padding: 24px 0 32px;
+      padding: 20px 0 28px;
+    }
+
+    .vite-about-title {
+      font-size: clamp(1.9rem, 6.5vw, 2.7rem);
+      word-break: break-word;
+    }
+
+    .vite-about-subtitle {
+      font-size: 0.95rem;
+      margin-bottom: 22px;
     }
 
     .vite-pipeline {
       grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .pipeline-item {
+      padding: 14px;
     }
 
     .credits-meta-row {
       grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
     .vite-about-card {
-      padding: 20px;
+      padding: 20px 18px;
     }
   }
 
   @media (max-width: 500px) {
     .vite-about {
-      padding: var(--space-4, 16px) var(--space-3, 12px);
+      padding: var(--space-4, 16px) var(--space-3, 12px) var(--space-6, 24px);
+    }
+
+    .vite-glow {
+      width: 320px;
+      height: 220px;
+      top: -40px;
     }
 
     .vite-about-actions {
       flex-direction: column;
       align-items: stretch;
+      gap: 10px;
+      width: 100%;
     }
 
     .vite-btn {
+      width: 100%;
       justify-content: center;
+      min-height: 46px;
+      padding: 11px 20px;
+      box-sizing: border-box;
     }
 
     .credits-meta-row {
       grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .vite-tech-tags {
+      gap: 6px;
+    }
+
+    .vite-tag {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+    }
+
+    .vite-checklist li {
+      font-size: 0.85rem;
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .vite-about {
+      padding: 12px 8px 20px;
+    }
+
+    .vite-about-title {
+      font-size: 1.65rem;
+    }
+
+    .vite-about-card {
+      padding: 16px 12px;
     }
   }
 </style>

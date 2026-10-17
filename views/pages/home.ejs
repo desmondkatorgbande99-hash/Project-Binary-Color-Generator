@@ -406,8 +406,8 @@
     .vite-hero {
       flex-direction: column-reverse;
       text-align: center;
-      padding: 32px 0 48px;
-      gap: 32px;
+      padding: 28px 0 40px;
+      gap: 28px;
     }
 
     .vite-hero-main {
@@ -425,36 +425,87 @@
 
     .vite-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
   }
 
   @media (max-width: 600px) {
     .vite-home {
-      padding: var(--space-4, 16px) var(--space-3, 12px);
+      padding: var(--space-4, 16px) var(--space-3, 12px) var(--space-6, 24px);
+      overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .vite-glow {
+      width: 340px;
+      height: 240px;
+      top: -40px;
     }
 
     .vite-hero {
-      padding: 20px 0 36px;
+      padding: 12px 0 28px;
+      gap: 20px;
+    }
+
+    .vite-hero-title {
+      font-size: clamp(2rem, 7.5vw, 2.75rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      word-break: break-word;
+    }
+
+    .vite-hero-subtitle {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 24px;
     }
 
     .vite-hero-figure {
-      width: 220px;
-      height: 220px;
+      width: 200px;
+      height: 200px;
+      max-width: 100%;
     }
 
     .vite-logo-card {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
+    }
+
+    .badge-r {
+      top: 2px;
+      left: 0;
+      font-size: 0.65rem;
+      padding: 2px 7px;
+    }
+
+    .badge-g {
+      top: 15px;
+      right: 0;
+      font-size: 0.65rem;
+      padding: 2px 7px;
+    }
+
+    .badge-b {
+      bottom: 2px;
+      left: 10px;
+      font-size: 0.65rem;
+      padding: 2px 7px;
     }
 
     .vite-actions {
       flex-direction: column;
       align-items: stretch;
       gap: 10px;
+      width: 100%;
     }
 
     .vite-btn {
+      width: 100%;
       justify-content: center;
+      min-height: 46px;
+      padding: 11px 20px;
+      box-sizing: border-box;
     }
 
     .vite-grid {
@@ -463,7 +514,31 @@
     }
 
     .vite-card {
-      padding: 20px;
+      padding: 18px 16px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .vite-home {
+      padding: 12px 8px 20px;
+    }
+
+    .vite-hero-title {
+      font-size: 1.85rem;
+    }
+
+    .vite-hero-figure {
+      width: 170px;
+      height: 170px;
+    }
+
+    .vite-logo-card {
+      width: 120px;
+      height: 120px;
+    }
+
+    .vite-channel-badge {
+      display: none;
     }
   }
 </style>
