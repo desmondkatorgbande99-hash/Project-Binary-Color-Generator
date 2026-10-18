@@ -37,6 +37,7 @@ window.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("input", (e) => {
       e.target.value = sanitizeBinary(e.target.value);
       updateValidationBorders();
+      if (el.colorNameInput) el.colorNameInput.value = "";
       const allFilled = [el.redInput, el.greenInput, el.blueInput].every(
         (f) => f.value.length === 8
       );
@@ -44,12 +45,16 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Color name input listener
+  // Color name input listener (does NOT update real-time; operator must press Generate)
   if (el.colorNameInput) {
     el.colorNameInput.addEventListener("input", () => {
-      updateValidationBorders();
-      if (el.colorNameInput.value.trim()) {
-        generateColorDebounced();
+      setApiStatus("");
+    });
+
+    el.colorNameInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        generateColor(true);
       }
     });
   }
@@ -103,15 +108,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-// Debounce timer
-let generateDebounceTimer = null;
-const DEBOUNCE_DELAY = 300;
-
-function generateColorDebounced() {
-  if (generateDebounceTimer) clearTimeout(generateDebounceTimer);
-  generateDebounceTimer = setTimeout(() => generateColor(false), DEBOUNCE_DELAY);
-}
 
 // ── HELPERS (client-side only, for UX) ──────────────────────
 
