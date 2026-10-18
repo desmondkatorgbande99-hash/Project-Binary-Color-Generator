@@ -1,6 +1,3 @@
-// services/colorService.js
-// Core business logic for color conversion and processing
-
 // ============ COLOR DATABASES ============
 
 /**
@@ -250,7 +247,7 @@ function generateFromBinary(red, green, blue) {
 
 /**
  * Generate color data from color name
- * @param {string} name - Color name (e.g., "red", "navy")
+ * @param {string} name - Color name (e.g., "red", "green")
  * @returns {Object} - { success, data/error }
  */
 function generateFromName(name) {
@@ -260,7 +257,7 @@ function generateFromName(name) {
     if (!rgb) {
         return {
             success: false,
-            error: `Color name "${name}" not recognized. Try names like 'red', 'blue', 'navy', 'purple', 'orange', 'pink'.`
+            error: `Color name "${name}" not recognized. Try names like 'red', 'blue', 'green', 'purple', 'orange', 'pink'.`
         };
     }
 
