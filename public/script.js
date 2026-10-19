@@ -35,13 +35,27 @@ window.addEventListener("DOMContentLoaded", () => {
   [el.redInput, el.greenInput, el.blueInput].forEach((input) => {
     if (!input) return;
     input.addEventListener("input", (e) => {
-      e.target.value = sanitizeBinary(e.target.value);
-      updateValidationBorders();
+      // Limit to max 8 characters but allow any digit (validation happens on generate)
+      e.target.value = e.target.value.slice(0, 8);
       if (el.colorNameInput) el.colorNameInput.value = "";
-      const allFilled = [el.redInput, el.greenInput, el.blueInput].every(
-        (f) => f.value.length === 8
+
+      const allValid = [el.redInput, el.greenInput, el.blueInput].every(
+        (f) => validateBinaryInput(f.value)
       );
-      if (allFilled) generateColor(false);
+      const anyHasNonBinary = [el.redInput, el.greenInput, el.blueInput].some(
+        (f) => f.value.length > 0 && /[^01]/.test(f.value)
+      );
+
+      updateValidationBorders();
+
+      if (anyHasNonBinary) {
+        setApiStatus("⚠ Invalid input! Binary fields only accept 0s and 1s.", "error");
+      } else {
+        setApiStatus("");
+      }
+
+      // Auto-generate only when all 3 fields are valid 8-bit binary
+      if (allValid) generateColor(false);
     });
   });
 
@@ -134,9 +148,20 @@ function updateValidationBorders() {
   if (!el.redInput) return;
   [el.redInput, el.greenInput, el.blueInput].forEach((field) => {
     if (!field) return;
-    field.style.border = validateBinaryInput(field.value)
-      ? "1px solid #00ffcc"
-      : "1px solid red";
+    const val = field.value;
+    if (val.length === 0) {
+      // Empty — reset to default
+      field.style.border = "";
+    } else if (/[^01]/.test(val)) {
+      // Contains non-binary digits — red
+      field.style.border = "1px solid red";
+    } else if (val.length < 8) {
+      // Valid binary digits but not yet 8 bits — orange
+      field.style.border = "1px solid orange";
+    } else {
+      // Exactly 8 valid binary digits — green
+      field.style.border = "1px solid #00ffcc";
+    }
   });
 }
 
