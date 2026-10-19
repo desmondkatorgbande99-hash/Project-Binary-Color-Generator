@@ -298,8 +298,10 @@ function resetAll() {
   if (el.blueDecimal) el.blueDecimal.innerText = "0";
 
   if (el.colorDisplay) {
-    el.colorDisplay.style.backgroundColor = "#ffffff";
-    el.colorDisplay.style.color = "#000000";
+    // Remove inline styles so the element falls back to its CSS default (dark initial state)
+    el.colorDisplay.style.backgroundColor = "";
+    el.colorDisplay.style.color = "";
+    el.colorDisplay.style.transition = "";
     el.colorDisplay.innerText = "NO COLOR YET";
   }
   if (el.colorName) el.colorName.innerText = "COLOR: NONE";
