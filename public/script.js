@@ -235,28 +235,33 @@ async function generateColor(fromButton = false) {
   }
 
   // ── Branch B: Binary input → call /api/generate-color
-  const rawRed = sanitizeBinary(el.redInput.value);
-  const rawGreen = sanitizeBinary(el.greenInput.value);
-  const rawBlue = sanitizeBinary(el.blueInput.value);
-  const red = rawRed.padStart(8, "0");
-  const green = rawGreen.padStart(8, "0");
-  const blue = rawBlue.padStart(8, "0");
+  // IMPORTANT: Read raw values directly — do NOT sanitize first.
+  // sanitizeBinary() silently strips non-binary chars, making "1211111" look valid.
+  const red = el.redInput.value.trim();
+  const green = el.greenInput.value.trim();
+  const blue = el.blueInput.value.trim();
 
-  if (fromButton && (!rawRed || !rawGreen || !rawBlue)) {
-    const message = "Invalid input! Use exactly 8 bits (0s and 1s) per channel, or enter a color name.";
+  // Check if any field is empty
+  if (!red || !green || !blue) {
+    const message = "Please fill in all 3 binary fields (Red, Green, Blue) before generating.";
     setApiStatus(`⚠ ${message}`, "error");
-    alert(message);
+    if (fromButton) alert(message);
     return;
   }
 
-  if (
-    !validateBinaryInput(red) ||
-    !validateBinaryInput(green) ||
-    !validateBinaryInput(blue)
-  ) {
-    const message = "Invalid input! Use exactly 8 bits (0s and 1s) per channel.";
-    if (fromButton) alert(message);
+  // Check for non-binary digits BEFORE length check
+  if (/[^01]/.test(red) || /[^01]/.test(green) || /[^01]/.test(blue)) {
+    const message = "Invalid input! Binary fields only accept 0s and 1s. Remove any other digits (2–9).";
     setApiStatus(`⚠ ${message}`, "error");
+    if (fromButton) alert(message);
+    return;
+  }
+
+  // Check each field is exactly 8 bits
+  if (!validateBinaryInput(red) || !validateBinaryInput(green) || !validateBinaryInput(blue)) {
+    const message = "Invalid input! Each channel must be exactly 8 bits (0s and 1s only).";
+    setApiStatus(`⚠ ${message}`, "error");
+    if (fromButton) alert(message);
     return;
   }
 
