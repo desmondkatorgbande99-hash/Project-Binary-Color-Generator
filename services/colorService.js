@@ -68,21 +68,6 @@ function getTextColor(r, g, b) {
   return brightness > 0.5 ? '#000000' : '#ffffff';
 }
 
-// ── LEVENSHTEIN DISTANCE (for fuzzy matching / typo tolerance) ───────────────
-function levenshtein(a, b) {
-  const m = a.length, n = b.length;
-  const dp = Array.from({ length: m + 1 }, (_, i) => [i]);
-  for (let j = 0; j <= n; j++) dp[0][j] = j;
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      dp[i][j] = a[i - 1] === b[j - 1]
-        ? dp[i - 1][j - 1]
-        : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
-    }
-  }
-  return dp[m][n];
-}
-
 // ── GET COLOR NAME FROM RGB (for binary → name display) ──────────────────────
 function getColorName(r, g, b) {
   const key = `${r},${g},${b}`;
@@ -118,91 +103,33 @@ function toDisplayName(name) {
   return name.replace(/\b\w/g, c => c.toUpperCase());
 }
 
-// ── SMART NAME LOOKUP ─────────────────────────────────────────────────────────
-// Returns { r, g, b, displayName } or null
+// ── LEGIT COLOR LOOKUP ─────────────────────────────────────────────────────────
+// Strictly checks for legitimate, existing color names:
+// 1. Exact match (case-insensitive, trimmed)
+// 2. Formatting variations (e.g., "sky blue" vs "skyblue" vs "sky-blue")
+// Does NOT guess random words (e.g. "cat" will NOT match "cyan", "burg" will NOT match).
 function lookupByName(rawInput) {
+  if (!rawInput || typeof rawInput !== 'string') return null;
+
   const input   = rawInput.trim().toLowerCase();
   const compact = input.replace(/[\s\-_]+/g, '');
 
-  // Stage 1: Exact normalized match
+  if (!input || !compact) return null;
+
+  // 1. Exact normalized match (e.g., "peach", "burgundy", "cyan")
   if (exactMap.has(input)) {
     const e = exactMap.get(input);
     return { r: e.r, g: e.g, b: e.b, displayName: toDisplayName(e.name) };
   }
 
-  // Stage 2: Compact match (no spaces/hyphens — e.g. "skyblue" → "sky blue")
+  // 2. Compact match for spacing/hyphen differences (e.g., "sky blue" vs "skyblue" vs "sky-blue")
   if (compactMap.has(compact)) {
     const e = compactMap.get(compact);
     return { r: e.r, g: e.g, b: e.b, displayName: toDisplayName(e.name) };
   }
 
-  // Stage 3: Starts-with match (longest matching prefix wins)
-  let startsWithMatch = null;
-  let startsWithLen   = -1;
-  for (const [norm, entry] of exactMap) {
-    if (norm.startsWith(input) || input.startsWith(norm)) {
-      if (norm.length > startsWithLen) {
-        startsWithLen   = norm.length;
-        startsWithMatch = entry;
-      }
-    }
-  }
-  if (startsWithMatch) {
-    return {
-      r: startsWithMatch.r,
-      g: startsWithMatch.g,
-      b: startsWithMatch.b,
-      displayName: toDisplayName(startsWithMatch.name),
-    };
-  }
-
-  // Stage 4: Contains match (input word appears anywhere in the color name)
-  for (const [norm, entry] of exactMap) {
-    if (norm.includes(input) || input.includes(norm)) {
-      return { r: entry.r, g: entry.g, b: entry.b, displayName: toDisplayName(entry.name) };
-    }
-  }
-
-  // Stage 5: Fuzzy / Levenshtein match (tolerates typos, max distance = 2)
-  let bestEntry = null;
-  let bestDist  = 3; // threshold — anything above 2 is ignored
-  for (const [norm, entry] of exactMap) {
-    const d = levenshtein(input, norm);
-    if (d < bestDist) {
-      bestDist  = d;
-      bestEntry = entry;
-    }
-    // Also try compact version of database name
-    const compactNorm = norm.replace(/[\s\-_]+/g, '');
-    const d2 = levenshtein(compact, compactNorm);
-    if (d2 < bestDist) {
-      bestDist  = d2;
-      bestEntry = entry;
-    }
-  }
-  if (bestEntry) {
-    return {
-      r: bestEntry.r,
-      g: bestEntry.g,
-      b: bestEntry.b,
-      displayName: toDisplayName(bestEntry.name),
-    };
-  }
-
-  return null; // truly not found
-}
-
-// ── FIND SIMILAR COLOR SUGGESTIONS ───────────────────────────────────────────
-function getSuggestions(rawInput, limit = 5) {
-  const input = rawInput.trim().toLowerCase();
-  const scored = [];
-  for (const [norm] of exactMap) {
-    scored.push({ name: norm, dist: levenshtein(input, norm) });
-  }
-  return scored
-    .sort((a, b) => a.dist - b.dist)
-    .slice(0, limit)
-    .map(s => toDisplayName(s.name));
+  // Not a legitimate color name
+  return null;
 }
 
 // =============================================================================
@@ -243,16 +170,13 @@ function generateFromName(name) {
     return { success: false, error: 'A color name string is required.' };
   }
 
-  const result = lookupByName(name);
+  const trimmed = name.trim();
+  const result = lookupByName(trimmed);
 
   if (!result) {
-    const suggestions = getSuggestions(name);
-    const hint = suggestions.length
-      ? ` Did you mean: ${suggestions.join(', ')}?`
-      : ' Try names like "peach", "cerulean", "burgundy", "sage", "mauve".';
     return {
       success: false,
-      error: `Color "${name}" not found in our library.${hint}`,
+      error: `"${trimmed}" is not recognized as a legitimate color. Please enter a valid color name (e.g. Peach, Burgundy, Navy, Coral, Cyan).`,
     };
   }
 
