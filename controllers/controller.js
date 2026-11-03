@@ -16,9 +16,7 @@ function getHomePage(req, res) {
   });
 }
 
-/**
- * Render the color generator page (embeds the existing public/index.html functionality)
- */
+/* Render the color generator page (embeds the existing public/index.html functionality) */
 function getGeneratorPage(req, res) {
   res.render("pages/color-generator", {
     title: "Color Generator | Binary Color Generator",
@@ -26,9 +24,7 @@ function getGeneratorPage(req, res) {
   });
 }
 
-/**
- * Render the about page
- */
+/* Render the about page */
 function getAboutPage(req, res) {
   res.render("pages/about", {
     title: "About | Binary Color Generator",
@@ -45,9 +41,7 @@ function getDashboardPage(req, res) {
   });
 }
 
-/**
- * Serve the original standalone app
- */
+/* Serve the original standalone app */
 function getOriginalApp(req, res) {
   res.sendFile(path.join(__dirname, "../public", "index.html"));
 }
